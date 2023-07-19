@@ -9,6 +9,7 @@ import { UserinfoDialogComponent } from './components/userinfo-dialog/userinfo-d
 
 import {SearchModule} from "./components/search/search.module";
 import {CircleAvatarModule} from "./components/circle-avatar/circle-avatar.module";
+import { FlowDialogComponent } from './components/flow-dialog/flow-dialog.component';
 @NgModule({
     declarations: [
         AppComponent,
@@ -16,6 +17,7 @@ import {CircleAvatarModule} from "./components/circle-avatar/circle-avatar.modul
         ExpandOverlayComponent,
 
         UserinfoDialogComponent,
+          FlowDialogComponent,
 
     ],
     imports: [BrowserModule, AppRoutingModule, SearchModule , CircleAvatarModule],

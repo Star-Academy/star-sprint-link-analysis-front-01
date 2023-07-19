@@ -6,9 +6,10 @@
   left: 50%;
   transform: translate(-50%);
   bottom: 6.5rem;
-  overflow: scroll;
+  overflow-y: scroll;
   gap: 1rem;
   height: 20rem;
-
-
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }

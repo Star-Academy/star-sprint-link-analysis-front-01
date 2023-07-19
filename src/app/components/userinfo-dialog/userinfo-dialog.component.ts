@@ -7,6 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class UserinfoDialogComponent {
   @Input() name: string = '';
-  @Input() id: number = 0;
-  @Input() cardId: number = 0;
+  @Input() id: string = '';
+  @Input() cardId: string = '';
 }
