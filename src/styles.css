@@ -4,26 +4,31 @@
   --primary-gradiant: linear-gradient(298.69deg, #031624 -21.37%, #113148 100%);
   --secondary-color: #24aab3;
 }
+
 * {
   color: #fff;
   font-family: Montserrat;
 }
+
 body {
   height: 100vh;
   box-sizing: 0;
   padding: 0;
   margin: 0;
 }
+
 .glass {
   background: rgba(72, 72, 72, 0.45);
   box-shadow: inset 0px 0px 47px 18px rgba(107, 107, 107, 0.25);
   backdrop-filter: blur(12.5px);
 }
+
 .glassBrighter {
   background: rgba(121, 121, 121, 0.45);
   box-shadow: inset 0px 0px 47px 18px rgba(107, 107, 107, 0.25);
   backdrop-filter: blur(12.5px);
 }
+
 button {
   background: var(--secondary-color);
   width: 12.3rem;
@@ -33,3 +38,5 @@ button {
   offset: none;
   border-radius: 0.3rem;
 }
+
+/*# sourceMappingURL=styles.css.map */

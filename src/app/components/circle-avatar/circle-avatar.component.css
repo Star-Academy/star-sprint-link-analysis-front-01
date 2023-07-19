@@ -1,0 +1,8 @@
+.container {
+  border-radius: 100%;
+}
+.container > img {
+  width: var(--size);
+}
+
+/*# sourceMappingURL=circle-avatar.component.css.map */
