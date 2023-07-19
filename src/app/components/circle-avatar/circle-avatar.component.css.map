@@ -1,10 +1,1 @@
-{
-  "version": 3,
-  "sourceRoot": "",
-  "sources": [
-    "circle-avatar.component.scss"
-  ],
-  "names": [],
-  "mappings": "AAAA;EACE;;AACA;EACE",
-  "file": "circle-avatar.component.css"
-}
+{"version":3,"sourceRoot":"","sources":["circle-avatar.component.scss"],"names":[],"mappings":"AAAA;EACE;;AACA;EACE","file":"circle-avatar.component.css"}

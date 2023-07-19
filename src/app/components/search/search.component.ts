@@ -11,12 +11,5 @@ import {style, trigger} from "@angular/animations";
 
 })
 export class SearchComponent {
-    public isCollapsed = false;
-
-
-    public toggleCollapse(): void {
-        this.isCollapsed = !this.isCollapsed;
-
-    }
 
 }
