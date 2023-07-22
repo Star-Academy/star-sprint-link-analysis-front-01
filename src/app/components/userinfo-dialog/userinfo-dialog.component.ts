@@ -9,4 +9,6 @@ export class UserinfoDialogComponent {
   @Input() name: string = "";
   @Input() id: string = "";
   @Input() cardId: string = "";
+  @Input() tp: string = "0px";
+  @Input() lft: string = "0px";
 }

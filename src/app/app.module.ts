@@ -9,6 +9,7 @@ import { CircleAvatarModule } from "./components/circle-avatar/circle-avatar.mod
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { FlowSnackbarModule } from "./components/flow-snackbar/flow-snackbar.module";
 import {GraphModule} from "./components/graph/graph.module";
+import {NgxPopperjsModule} from 'ngx-popperjs';
 
 @NgModule({
   declarations: [AppComponent, ExpandOverlayComponent, UserinfoDialogComponent],
@@ -20,6 +21,7 @@ import {GraphModule} from "./components/graph/graph.module";
         FontAwesomeModule,
         FlowSnackbarModule,
         GraphModule,
+      NgxPopperjsModule,
     ],
   providers: [],
   bootstrap: [AppComponent],
