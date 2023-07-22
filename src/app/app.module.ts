@@ -8,17 +8,19 @@ import { SearchModule } from "./components/search/search.module";
 import { CircleAvatarModule } from "./components/circle-avatar/circle-avatar.module";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { FlowSnackbarModule } from "./components/flow-snackbar/flow-snackbar.module";
+import {GraphModule} from "./components/graph/graph.module";
 
 @NgModule({
   declarations: [AppComponent, ExpandOverlayComponent, UserinfoDialogComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    SearchModule,
-    CircleAvatarModule,
-    FontAwesomeModule,
-    FlowSnackbarModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        SearchModule,
+        CircleAvatarModule,
+        FontAwesomeModule,
+        FlowSnackbarModule,
+        GraphModule,
+    ],
   providers: [],
   bootstrap: [AppComponent],
 })
