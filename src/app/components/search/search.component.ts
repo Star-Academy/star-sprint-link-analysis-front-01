@@ -1,15 +1,9 @@
-import {Component, ViewChild} from '@angular/core';
-import {style, trigger} from "@angular/animations";
+import { Component } from "@angular/core";
 
 @Component({
-    selector: 'app-search',
-    templateUrl: './search.component.html',
-    styleUrls: ['./search.component.scss'],
-    animations: []
-
-
-
+  selector: "app-search",
+  templateUrl: "./search.component.html",
+  styleUrls: ["./search.component.scss"],
+  animations: [],
 })
-export class SearchComponent {
-
-}
+export class SearchComponent {}

@@ -1,15 +1,8 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-search-box',
-  templateUrl: './search-box.component.html',
-  styleUrls: ['./search-box.component.scss']
+  selector: "app-search-box",
+  templateUrl: "./search-box.component.html",
+  styleUrls: ["./search-box.component.scss"],
 })
-export class SearchBoxComponent {
-  public isCollapsed = false;
-
-  public toggleCollapse(): void {
-    this.isCollapsed = !this.isCollapsed;
-
-  }
-}
+export class SearchBoxComponent {}

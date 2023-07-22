@@ -1,10 +1,8 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-search-result',
-  templateUrl: './search-result.component.html',
-  styleUrls: ['./search-result.component.scss']
+  selector: "app-search-result",
+  templateUrl: "./search-result.component.html",
+  styleUrls: ["./search-result.component.scss"],
 })
-export class SearchResultComponent {
-
-}
+export class SearchResultComponent {}

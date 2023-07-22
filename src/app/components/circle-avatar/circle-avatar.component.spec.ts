@@ -1,21 +1,21 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { CircleAvatarComponent } from './circle-avatar.component';
+import { CircleAvatarComponent } from "./circle-avatar.component";
 
-describe('CircleAvatarComponent', () => {
+describe("CircleAvatarComponent", () => {
   let component: CircleAvatarComponent;
   let fixture: ComponentFixture<CircleAvatarComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [CircleAvatarComponent]
+      declarations: [CircleAvatarComponent],
     });
     fixture = TestBed.createComponent(CircleAvatarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

@@ -1,21 +1,21 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { ExpandOverlayComponent } from './expand-overlay.component';
+import { ExpandOverlayComponent } from "./expand-overlay.component";
 
-describe('ExpandOverlayComponent', () => {
+describe("ExpandOverlayComponent", () => {
   let component: ExpandOverlayComponent;
   let fixture: ComponentFixture<ExpandOverlayComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ExpandOverlayComponent]
+      declarations: [ExpandOverlayComponent],
     });
     fixture = TestBed.createComponent(ExpandOverlayComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

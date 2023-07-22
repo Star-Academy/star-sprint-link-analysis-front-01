@@ -23,7 +23,7 @@ body {
   backdrop-filter: blur(12.5px);
 }
 
-.glassBrighter {
+.glass-brighter {
   background: rgba(121, 121, 121, 0.45);
   box-shadow: inset 0px 0px 47px 18px rgba(107, 107, 107, 0.25);
   backdrop-filter: blur(12.5px);

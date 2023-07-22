@@ -1,26 +1,35 @@
 .container {
   position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  width: 14rem;
-  height: 14rem;
-  padding: 1rem;
   top: 50%;
   left: 80%;
-  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 14rem;
+  height: 14rem;
+
+  padding: 1rem;
+
   border-radius: 0.8rem;
+
+  transform: translate(-50%, -50%);
+
+  text-align: center;
+
   .maxflow {
     display: flex;
     flex-direction: row;
-    gap: 1rem;
     align-items: center;
+    gap: 1rem;
+
     img {
       width: 1.5rem;
     }
   }
+
   img {
     width: 4rem;
   }

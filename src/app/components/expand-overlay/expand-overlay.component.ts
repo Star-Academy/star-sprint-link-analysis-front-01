@@ -1,10 +1,8 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-expand-overlay',
-  templateUrl: './expand-overlay.component.html',
-  styleUrls: ['./expand-overlay.component.scss']
+  selector: "app-expand-overlay",
+  templateUrl: "./expand-overlay.component.html",
+  styleUrls: ["./expand-overlay.component.scss"],
 })
-export class ExpandOverlayComponent {
-
-}
+export class ExpandOverlayComponent {}

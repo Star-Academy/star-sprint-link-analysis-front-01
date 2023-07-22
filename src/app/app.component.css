@@ -1,0 +1,18 @@
+.wrapper {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--main-body-bg);
+}
+
+.wrapper .container {
+  width: 90%;
+  height: 90%;
+  background: var(--primary-gradiant);
+  border-radius: 2.5rem;
+  position: relative;
+}
+
+/*# sourceMappingURL=app.component.css.map */
