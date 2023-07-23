@@ -1,7 +1,7 @@
 .container {
   position: absolute;
-  top: 50%;
-  left: 80%;
+  inset-block-start: 50%;
+  inset-inline-start: 80%;
 
   display: flex;
   flex-direction: column;
@@ -11,7 +11,8 @@
   width: 14rem;
   height: 14rem;
 
-  padding: 1rem;
+  padding-block: 1rem;
+  padding-inline: 1rem;
 
   border-radius: 0.8rem;
 

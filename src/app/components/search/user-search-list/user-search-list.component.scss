@@ -1,7 +1,7 @@
 .container {
   position: absolute;
-  bottom: 6.5rem;
-  left: 50%;
+  inset-block-end: 6.5rem;
+  inset-inline-start: 50%;
   overflow-y: scroll;
 
   display: flex;

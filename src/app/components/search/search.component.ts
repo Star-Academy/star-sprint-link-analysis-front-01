@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import {Component} from "@angular/core";
 
 @Component({
   selector: "app-search",
@@ -6,4 +6,5 @@ import { Component } from "@angular/core";
   styleUrls: ["./search.component.scss"],
   animations: [],
 })
-export class SearchComponent {}
+export class SearchComponent {
+}

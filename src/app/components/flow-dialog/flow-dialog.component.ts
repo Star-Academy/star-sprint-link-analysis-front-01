@@ -6,7 +6,9 @@ import { Component, Input } from "@angular/core";
   styleUrls: ["./flow-dialog.component.scss"],
 })
 export class FlowDialogComponent {
-  @Input() source: string = "";
-  @Input() target: string = "";
-  @Input() amount: string = "";
+  @Input() source!: string;
+  @Input() target!: string;
+  @Input() amount!: string;
+  @Input() iconSrc!: string;
+  @Input() iconAlt!: string;
 }

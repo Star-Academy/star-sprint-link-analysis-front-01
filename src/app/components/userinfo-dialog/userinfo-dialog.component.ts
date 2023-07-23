@@ -6,7 +6,7 @@ import { Component, Input } from "@angular/core";
   styleUrls: ["./userinfo-dialog.component.scss"],
 })
 export class UserinfoDialogComponent {
-  @Input() name: string = "";
-  @Input() id: string = "";
-  @Input() cardId: string = "";
+  @Input() name!: string;
+  @Input() id!: string;
+  @Input() cardId!: string;
 }

@@ -1,5 +1,5 @@
 .wrapper {
-  background: var(--main-body-bg);
+  background-color: var(--main-body-bg);
 
   display: flex;
   flex-direction: column;
@@ -9,7 +9,7 @@
   height: 100%;
 
   .container {
-    background: var(--primary-gradiant);
+    background-image: var(--primary-gradiant);
 
     position: relative;
 
