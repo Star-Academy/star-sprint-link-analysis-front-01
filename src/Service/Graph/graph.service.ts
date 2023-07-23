@@ -4,6 +4,7 @@ import {ApiService} from "../Api/api.service";
 import {ConverterService} from "../Converter/converter.service";
 import {GraphResponseModel} from "../../Model/GraphResponseModel";
 import {Observable} from "rxjs";
+import {LoadingService} from "../Loading/loading.service";
 import {UserService} from "../User/user.service";
 
 @Injectable({
@@ -13,7 +14,7 @@ export class GraphService {
     private _graph!: Graph;
 
 
-    constructor(private api: ApiService, private converter: ConverterService, private userService:UserService) {
+    constructor(private api: ApiService, private converter: ConverterService, private userService:UserService, private loading: LoadingService) {
     }
 
 
@@ -107,6 +108,7 @@ export class GraphService {
             this.graph?.setItemState(nodeItem, 'hover', false); // Set the state 'hover' of the item to be false
         });
         this.graph.on('node:click', (e) => {
+
         });
     }
 
@@ -119,10 +121,15 @@ export class GraphService {
             })
             this.graph.render();
         });
+        setInterval(() => {
+            this.loading.hideLoading();
+        },100)
+
 
     }
 
     public getInitGraph(id: number = 3000000271) {
+        this.loading.showLoading();
         const response = this.api.initGraph(id);
         this.renderGraph(response);
     }
