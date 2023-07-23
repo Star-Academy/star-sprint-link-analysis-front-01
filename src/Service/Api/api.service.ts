@@ -12,6 +12,7 @@ export class ApiService {
     }
 
     public initGraph(id: number): Observable<GraphResponseModel> {
+
         return this.client.post<GraphResponseModel>(transactionVisualizerEndpoint, {accountId: id});
     }
 }

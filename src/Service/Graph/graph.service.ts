@@ -4,6 +4,7 @@ import {ApiService} from "../Api/api.service";
 import {ConverterService} from "../Converter/converter.service";
 import {GraphResponseModel} from "../../Model/GraphResponseModel";
 import {Observable} from "rxjs";
+import {LoadingService} from "../Loading/loading.service";
 
 @Injectable({
     providedIn: 'root'
@@ -12,7 +13,7 @@ export class GraphService {
     private _graph!: Graph;
 
 
-    constructor(private api: ApiService, private converter: ConverterService) {
+    constructor(private api: ApiService, private converter: ConverterService, private loading: LoadingService) {
     }
 
 
@@ -108,6 +109,7 @@ export class GraphService {
     }
 
     public renderGraph(response: Observable<GraphResponseModel>): void {
+
         response.subscribe((data) => {
             this.graph.data({
                 nodes: this.converter.convertNodeServerResponsesToGraphNode(data),
@@ -115,10 +117,15 @@ export class GraphService {
             })
             this.graph.render();
         });
+        setInterval(() => {
+            this.loading.hideLoading();
+        },100)
+
 
     }
 
     public getInitGraph(id: number = 3000000271) {
+        this.loading.showLoading();
         const response = this.api.initGraph(id);
         this.renderGraph(response);
     }
