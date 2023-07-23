@@ -16,7 +16,7 @@ export class GraphComponent implements OnInit, AfterViewInit {
     ngOnInit(): void {
         const element: HTMLElement | null = document.getElementById('container');
         this.graphService.initGraph(element);
-        this.graphService.getInitGraph();
+        // this.graphService.getInitGraph();
     }
 
     ngAfterViewInit(): void {
