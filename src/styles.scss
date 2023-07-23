@@ -23,15 +23,15 @@ body {
 }
 
 .glass {
-  background: rgb(72 72 72 / 45%);
-  box-shadow: inset 0 0 2.7rem 1.2rem rgb(107 107 107 / 25%);
+  background-color: hsla(0, 0%, 28%, 0.45);
+  box-shadow: inset 0 0 2.7rem 1.2rem hsla(0, 0%, 42%, 0.25);
 
   backdrop-filter: blur(0.8rem);
 }
 
 .glass-brighter {
-  background: rgb(121 121 121 / 45%);
-  box-shadow: inset 0 0 2.7rem 1.2rem rgb(107 107 107 / 25%);
+  background-color: hsla(0, 0%, 47%, 0.45);
+  box-shadow: inset 0 0 2.7rem 1.2rem hsla(0, 0%, 42%, 0.25);
 
   backdrop-filter: blur(0.8rem);
 }

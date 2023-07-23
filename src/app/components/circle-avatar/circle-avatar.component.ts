@@ -6,6 +6,7 @@ import { Component, Input } from "@angular/core";
   styleUrls: ["./circle-avatar.component.scss"],
 })
 export class CircleAvatarComponent {
-  @Input() src: string = "assets/icons/account.svg";
-  @Input() size: number = 4;
+  @Input() iconSrc!: string;
+  @Input() iconAlt!: string;
+  @Input() size!: number;
 }
