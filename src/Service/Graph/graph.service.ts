@@ -4,6 +4,7 @@ import {ApiService} from "../Api/api.service";
 import {ConverterService} from "../Converter/converter.service";
 import {GraphResponseModel} from "../../Model/GraphResponseModel";
 import {Observable} from "rxjs";
+import {UserService} from "../User/user.service";
 
 @Injectable({
     providedIn: 'root'
@@ -12,7 +13,7 @@ export class GraphService {
     private _graph!: Graph;
 
 
-    constructor(private api: ApiService, private converter: ConverterService) {
+    constructor(private api: ApiService, private converter: ConverterService, private userService:UserService) {
     }
 
 
@@ -95,20 +96,23 @@ export class GraphService {
 
     public graphEvents() {
         this.graph.on('node:mouseenter', (e) => {
-            const nodeItem = e.item || ''; // Get the target item
-            this.graph?.setItemState(nodeItem, 'hover', true); // Set the state 'hover' of the item to be true
+            const nodeItem = e.item || '';
+            this.graph?.setItemState(nodeItem, 'hover', true);
+          console.log(this.userService.users.find((item)=> {
+            return item.id === parseInt(e.item?._cfg?.id || "")
+          }))
         });
         this.graph.on('node:mouseleave', (e) => {
             const nodeItem = e.item || ''; // Get the target item
             this.graph?.setItemState(nodeItem, 'hover', false); // Set the state 'hover' of the item to be false
         });
         this.graph.on('node:click', (e) => {
-
         });
     }
 
     public renderGraph(response: Observable<GraphResponseModel>): void {
         response.subscribe((data) => {
+          this.userService.users = data.vertices;
             this.graph.data({
                 nodes: this.converter.convertNodeServerResponsesToGraphNode(data),
                 edges: this.converter.convertEdgeServerResponsesToGraphEdge(data)
