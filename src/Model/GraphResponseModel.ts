@@ -22,12 +22,24 @@ export interface Vertex {
     owner: owner;
 
 }
+
 interface Edge {
     source: number;
     destination: number;
-    content: number;
+    content: Content;
 }
-export  interface GraphResponseModel {
+
+interface Content {
+    id: number;
+    sourceAccount: number;
+    destinationAccount: number;
+    transactionType: number;
+    amount: number;
+    date: string;
+
+}
+
+export interface GraphResponseModel {
     vertexCount: number;
     edgeCount: number;
     vertices: Vertex[];

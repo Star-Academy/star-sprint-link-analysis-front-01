@@ -1,8 +1,6 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { GraphComponent } from './graph.component';
-import {NgxPopperjsModule} from "ngx-popperjs";
-
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {GraphComponent} from './graph.component';
 
 
 @NgModule({
@@ -12,9 +10,9 @@ import {NgxPopperjsModule} from "ngx-popperjs";
     exports: [
         GraphComponent
     ],
-  imports: [
-    CommonModule,
-    NgxPopperjsModule
-  ]
+    imports: [
+        CommonModule
+    ]
 })
-export class GraphModule { }
+export class GraphModule {
+}

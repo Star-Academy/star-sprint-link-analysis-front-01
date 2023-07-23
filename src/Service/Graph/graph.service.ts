@@ -1,6 +1,9 @@
 import {Injectable} from '@angular/core';
 import {Graph} from "@antv/g6";
 import {ApiService} from "../Api/api.service";
+import {ConverterService} from "../Converter/converter.service";
+import {GraphResponseModel} from "../../Model/GraphResponseModel";
+import {Observable} from "rxjs";
 
 @Injectable({
     providedIn: 'root'
@@ -9,7 +12,7 @@ export class GraphService {
     private _graph!: Graph;
 
 
-    constructor(private api: ApiService) {
+    constructor(private api: ApiService, private converter: ConverterService) {
     }
 
 
@@ -90,38 +93,33 @@ export class GraphService {
         });
     }
 
-    public getData() {
-        let nodes: Array<any> = [];
-        let edges: any[] = [];
+    public graphEvents() {
+        this.graph.on('node:mouseenter', (e) => {
+            const nodeItem = e.item || ''; // Get the target item
+            this.graph?.setItemState(nodeItem, 'hover', true); // Set the state 'hover' of the item to be true
+        });
+        this.graph.on('node:mouseleave', (e) => {
+            const nodeItem = e.item || ''; // Get the target item
+            this.graph?.setItemState(nodeItem, 'hover', false); // Set the state 'hover' of the item to be false
+        });
+        this.graph.on('node:click', (e) => {
 
-        const response = this.api.initGraph(3000000271);
+        });
+    }
 
-        console.log(response);
+    public renderGraph(response: Observable<GraphResponseModel>): void {
         response.subscribe((data) => {
-
-            let nodes: any[] = [];
-            for (let vertex of data.vertices) {
-                nodes.push({
-                    id: vertex.id.toString(),
-                    label: vertex.owner.name
-                })
-            }
-
-            let edges: any[] = [];
-            for (let edge of data.edges) {
-                edges.push({
-                    source: edge.source.toString(),
-                    target: edge.destination.toString(),
-                    label: "200"
-                })
-            };
-
             this.graph.data({
-                nodes: nodes,
-                edges: edges
+                nodes: this.converter.convertNodeServerResponsesToGraphNode(data),
+                edges: this.converter.convertEdgeServerResponsesToGraphEdge(data)
             })
             this.graph.render();
         });
 
+    }
+
+    public getInitGraph(id: number = 3000000271) {
+        const response = this.api.initGraph(id);
+        this.renderGraph(response);
     }
 }

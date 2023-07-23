@@ -1,5 +1,4 @@
 import {AfterViewInit, Component, OnInit,} from '@angular/core';
-import {Graph} from '@antv/g6';
 import {GraphService} from "../../../Service/Graph/graph.service";
 
 @Component({
@@ -11,32 +10,19 @@ export class GraphComponent implements OnInit, AfterViewInit {
     public data: any;
 
     constructor(private graphService: GraphService) {
-
     }
 
-
-    graph?: Graph;
 
     ngOnInit(): void {
         const element: HTMLElement | null = document.getElementById('container');
         this.graphService.initGraph(element);
-        this.graphService.getData();
-
-
-
+        this.graphService.getInitGraph();
     }
 
     ngAfterViewInit(): void {
-        this.graph?.on('node:mouseenter', (e) => {
-            const nodeItem = e.item || ''; // Get the target item
-            this.graph?.setItemState(nodeItem, 'hover', true); // Set the state 'hover' of the item to be true
-        });
-        this.graph?.on('node:mouseleave', (e) => {
-            const nodeItem = e.item || ''; // Get the target item
-            this.graph?.setItemState(nodeItem, 'hover', false); // Set the state 'hover' of the item to be false
-        });
-        this.graph?.on('node:click', (e) => {
-            console.log('meow');
-        });
+        // this.graphService.graph.on('node:click', (e) => {
+        //     alert("a")
+        // });
+        this.graphService.graphEvents();
     }
 }
