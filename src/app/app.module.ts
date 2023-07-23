@@ -9,23 +9,24 @@ import { CircleAvatarModule } from "./components/circle-avatar/circle-avatar.mod
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { FlowSnackbarModule } from "./components/flow-snackbar/flow-snackbar.module";
 import {GraphModule} from "./components/graph/graph.module";
-import {NgxPopperjsModule} from 'ngx-popperjs';
+import {HttpClientModule} from "@angular/common/http";
 import {LoadingModule} from "./components/loading/loading.module";
 
 @NgModule({
-  declarations: [AppComponent, ExpandOverlayComponent, UserinfoDialogComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    SearchModule,
-    CircleAvatarModule,
-    FontAwesomeModule,
-    FlowSnackbarModule,
-    GraphModule,
-    NgxPopperjsModule,
-    LoadingModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
+    declarations: [AppComponent, ExpandOverlayComponent, UserinfoDialogComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        SearchModule,
+        CircleAvatarModule,
+        FontAwesomeModule,
+        FlowSnackbarModule,
+        HttpClientModule,
+        GraphModule,
+        LoadingModule
+
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Graph} from "@antv/g6";
+import {ApiService} from "../Api/api.service";
 
 @Injectable({
     providedIn: 'root'
@@ -8,7 +9,7 @@ export class GraphService {
     private _graph!: Graph;
 
 
-    constructor() {
+    constructor(private api: ApiService) {
     }
 
 
@@ -34,7 +35,7 @@ export class GraphService {
                 },
             },
             modes: {
-                default: ['zoom-canvas', 'drag-canvas'], // Allow users to drag canvas, zoom canvas, and drag nodes
+                default: ['zoom-canvas', 'drag-canvas', 'drag-node'], // Allow users to drag canvas, zoom canvas, and drag nodes
             },
             layout: {
                 // Object, layout configuration. random by default
@@ -90,73 +91,37 @@ export class GraphService {
     }
 
     public getData() {
-        let data = {
-            nodes: [
-                {
-                    id: 'node1',
-                    label: 'A',
-                },
-                {
-                    id: 'node2',
-                    label: 'B',
-                },
-                {
-                    id: 'node3',
-                    label: 'C',
-                },
-                {
-                    id: 'node4',
-                    label: 'D',
-                },
-                {
-                    id: 'node5',
-                    label: 'E',
-                },
-            ],
-            edges: [
-                {
-                    source: 'node1',
-                    target: 'node2',
-                    label: '100',
-                },
-                {
-                    source: 'node1',
-                    target: 'node3',
-                    label: '200',
-                },
-                {
-                    source: 'node1',
-                    target: 'node4',
-                    label: '450',
-                },
-                {
-                    source: 'node2',
-                    target: 'node3',
-                    label: '230',
-                },
-                {
-                    source: 'node2',
-                    target: 'node4',
-                    label: '230',
-                },
-                {
-                    source: 'node1',
-                    target: 'node5',
-                    label: '300',
-                },
-            ],
-        };
-        let nodeData = {
-            id: 'node1',
-            x: 350,
-            y: 270,
-            label: 'A',
-            type: 'circle',
-            color: '#DDE6ED',
-            style: {
-                r: 25,
-            },
-        };
-        return data;
+        let nodes: Array<any> = [];
+        let edges: any[] = [];
+
+        const response = this.api.initGraph(3000000271);
+
+        console.log(response);
+        response.subscribe((data) => {
+
+            let nodes: any[] = [];
+            for (let vertex of data.vertices) {
+                nodes.push({
+                    id: vertex.id.toString(),
+                    label: vertex.owner.name
+                })
+            }
+
+            let edges: any[] = [];
+            for (let edge of data.edges) {
+                edges.push({
+                    source: edge.source.toString(),
+                    target: edge.destination.toString(),
+                    label: "200"
+                })
+            };
+
+            this.graph.data({
+                nodes: nodes,
+                edges: edges
+            })
+            this.graph.render();
+        });
+
     }
 }
