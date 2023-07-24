@@ -1,19 +1,11 @@
-import { Injectable } from "@angular/core";
-import OverlayComponent from "../../Model/OverlayComponent";
-
-interface Context {
-  top: number;
-  left: number;
-  id: string;
-  name: string;
-  cardId: string;
-}
+import { Injectable } from '@angular/core';
+import OverlayComponent from '../../../Model/OverlayComponent';
+import Context from '../../../Model/Context';
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class UserInfoPopperService {
   private _component!: OverlayComponent;
-
   constructor() {}
 
   get component(): OverlayComponent {

@@ -5,17 +5,17 @@ import {
   OnChanges,
   Output,
   SimpleChanges,
-} from "@angular/core";
-import { SearchService } from "../../../../Service/Search/search.service";
+} from '@angular/core';
+import { SearchService } from '../../../../Service/Search/search.service';
 
 @Component({
-  selector: "app-search-box",
-  templateUrl: "./search-box.component.html",
-  styleUrls: ["./search-box.component.scss"],
+  selector: 'app-search-box',
+  templateUrl: './search-box.component.html',
+  styleUrls: ['./search-box.component.scss'],
 })
 export class SearchBoxComponent {
   constructor(private searchService: SearchService) {}
-  searchPhrase: string = "";
+  searchPhrase: string = '';
   @Input() iconSrc!: string;
   @Input() iconAlt!: string;
   @Output() txtChange = new EventEmitter<string>();

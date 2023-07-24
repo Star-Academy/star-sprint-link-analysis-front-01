@@ -1,8 +1,8 @@
-import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserinfoDialogComponent } from "./userinfo-dialog.component";
+import { UserinfoDialogComponent } from './userinfo-dialog.component';
 
-describe("UserinfoDialogComponent", () => {
+describe('UserinfoDialogComponent', () => {
   let component: UserinfoDialogComponent;
   let fixture: ComponentFixture<UserinfoDialogComponent>;
 
@@ -15,7 +15,7 @@ describe("UserinfoDialogComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

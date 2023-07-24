@@ -1,13 +1,13 @@
-import { Component, Input } from "@angular/core";
-import { LoadingService } from "../../../Service/Loading/loading.service";
+import { Component, Input } from '@angular/core';
+import { LoadingService } from '../../../Service/Loading/loading.service';
 
 @Component({
-  selector: "app-loading",
-  templateUrl: "./loading.component.html",
-  styleUrls: ["./loading.component.scss"],
+  selector: 'app-loading',
+  templateUrl: './loading.component.html',
+  styleUrls: ['./loading.component.scss'],
 })
 export class LoadingComponent {
-  @Input() message: string = "Loading...";
+  @Input() message: string = 'Loading...';
 
   constructor(private loadingService: LoadingService) {
     loadingService.loadingComponent = this;
