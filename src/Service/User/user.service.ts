@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
-import {Vertex} from "../../Model/GraphResponseModel";
+import { Injectable } from "@angular/core";
+import { Vertex } from "../../Model/GraphResponseModel";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class UserService {
-  private _users!:Vertex[];
-  constructor() { }
+  private _users!: Vertex[];
+  constructor() {}
 
   get users(): Vertex[] {
     return this._users;

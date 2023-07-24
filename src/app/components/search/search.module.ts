@@ -5,7 +5,7 @@ import { UserSearchListComponent } from "./user-search-list/user-search-list.com
 import { SearchBoxComponent } from "./search-box/search-box.component";
 import { SearchResultComponent } from "./search-result/search-result.component";
 import { CircleAvatarModule } from "../circle-avatar/circle-avatar.module";
-import {FormsModule} from "@angular/forms";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -15,6 +15,6 @@ import {FormsModule} from "@angular/forms";
     SearchResultComponent,
   ],
   exports: [SearchComponent],
-    imports: [CommonModule, CircleAvatarModule, FormsModule],
+  imports: [CommonModule, CircleAvatarModule, FormsModule],
 })
 export class SearchModule {}

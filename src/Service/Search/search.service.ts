@@ -1,16 +1,17 @@
-import { Injectable } from '@angular/core';
-import {ApiService} from "../Api/api.service";
-import {GraphResponseModel} from "../../Model/GraphResponseModel";
-import {GraphService} from "../Graph/graph.service";
+import { Injectable } from "@angular/core";
+import { ApiService } from "../Api/api.service";
+import { GraphResponseModel } from "../../Model/GraphResponseModel";
+import { GraphService } from "../Graph/graph.service";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class SearchService {
-  constructor(private api:ApiService,private graphService:GraphService) {
-  }
-  public getById(id:number)
-  {
+  constructor(
+    private api: ApiService,
+    private graphService: GraphService,
+  ) {}
+  public getById(id: number) {
     this.graphService.getInitGraph(id);
   }
 }

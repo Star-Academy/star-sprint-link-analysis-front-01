@@ -1,4 +1,4 @@
-import {Component, Input} from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 @Component({
   selector: "app-search-result",
@@ -6,6 +6,6 @@ import {Component, Input} from "@angular/core";
   styleUrls: ["./search-result.component.scss"],
 })
 export class SearchResultComponent {
-  @Input() id!:number;
-  @Input() cardId!:number;
+  @Input() id!: number;
+  @Input() cardId!: number;
 }

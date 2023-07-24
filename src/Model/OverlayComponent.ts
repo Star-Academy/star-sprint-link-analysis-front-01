@@ -1,11 +1,11 @@
 export default interface OverlayComponent {
-    setPosition(tp: number, lft: number): void;
+  setPosition(tp: number, lft: number): void;
 
-    getPosition(): { top: number; left: number; };
+  getPosition(): { top: number; left: number };
 
-    show(): void;
+  show(): void;
 
-    hide(): void;
+  hide(): void;
 
-    setAttribute(context: any): void;
+  setAttribute(context: any): void;
 }

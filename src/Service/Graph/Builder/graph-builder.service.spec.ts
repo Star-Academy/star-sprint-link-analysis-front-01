@@ -1,13 +1,13 @@
 import { TestBed } from "@angular/core/testing";
 
-import { ApiService } from "./api.service";
+import { GraphBuilderService } from "./graph-builder.service";
 
-describe("ApiService", () => {
-  let service: ApiService;
+describe("GraphBuilderService", () => {
+  let service: GraphBuilderService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ApiService);
+    service = TestBed.inject(GraphBuilderService);
   });
 
   it("should be created", () => {

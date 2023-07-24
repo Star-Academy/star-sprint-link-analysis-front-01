@@ -1,39 +1,37 @@
-import {Injectable} from '@angular/core';
-import {GraphResponseModel} from "../../Model/GraphResponseModel";
+import { Injectable } from "@angular/core";
+import { GraphResponseModel } from "../../Model/GraphResponseModel";
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: "root",
 })
 export class ConverterService {
+  constructor() {}
 
-    constructor() {
+  public convertNodeServerResponsesToGraphNode(
+    data: GraphResponseModel,
+  ): any[] {
+    let nodes: any[] = [];
+    for (let vertex of data.vertices) {
+      nodes.push({
+        id: vertex.id.toString(),
+        label: vertex.owner.name,
+      });
     }
 
-    public convertNodeServerResponsesToGraphNode(data: GraphResponseModel): any[] {
-        let nodes: any[] = [];
-        for (let vertex of data.vertices) {
-            nodes.push({
-                id: vertex.id.toString(),
-                label: vertex.owner.name
-            })
-        }
+    return nodes;
+  }
 
-        return nodes;
-
+  public convertEdgeServerResponsesToGraphEdge(
+    data: GraphResponseModel,
+  ): any[] {
+    let edges: any[] = [];
+    for (let edge of data.edges) {
+      edges.push({
+        source: edge.source.toString(),
+        target: edge.destination.toString(),
+        label: edge.content.amount.toString(),
+      });
     }
-
-    public convertEdgeServerResponsesToGraphEdge(data: GraphResponseModel): any[] {
-        let edges: any[] = [];
-        for (let edge of data.edges) {
-            edges.push({
-                source: edge.source.toString(),
-                target: edge.destination.toString(),
-                label: edge.content.amount.toString()
-            })
-        }
-        ;
-
-        return edges;
-
-    }
+    return edges;
+  }
 }
