@@ -13,4 +13,7 @@ describe('ApiService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+  it('should init graph', () => {
+    expect(service).toBeTruthy();
+  });
 });
