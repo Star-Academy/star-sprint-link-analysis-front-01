@@ -1,0 +1,16 @@
+.snackbar {
+  position: absolute;
+  inset-block-end: 2rem;
+  inset-inline-start: 2rem;
+
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+
+  padding-block: 0.2rem;
+  padding-inline: 1.2rem;
+
+  border-radius: 1rem;
+
+  font-size: smaller;
+}

@@ -1,0 +1,32 @@
+.container {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  width: 15rem;
+  height: 8rem;
+
+  border-radius: 0.8rem;
+
+  transform: translate(-50%, -50%);
+}
+
+.length-input {
+  padding-block: 0.8rem;
+  padding-inline: 1.2rem;
+
+  border: none;
+  border-radius: 0.3rem;
+
+  outline: none;
+
+  &::placeholder {
+    color: hsl(0deg 0% 100%);
+  }
+}

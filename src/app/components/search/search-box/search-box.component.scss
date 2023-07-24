@@ -1,0 +1,33 @@
+.container {
+  position: absolute;
+  inset-block-end: 2rem;
+  inset-inline-start: 50%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+
+  padding-inline: 0.7rem;
+  padding-block: 0.7rem;
+
+  border-radius: 1rem;
+
+  transform: translateX(-50%);
+}
+
+.search-input {
+  background-color: transparent;
+
+  gap: 2rem;
+
+  width: 25rem;
+  height: 1.7rem;
+
+  border: none;
+
+  outline: none;
+
+  transition: all 0.5s ease-in-out;
+}
