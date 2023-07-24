@@ -6,6 +6,7 @@ import {GraphResponseModel} from "../../Model/GraphResponseModel";
 import {Observable} from "rxjs";
 import {LoadingService} from "../Loading/loading.service";
 import {UserService} from "../User/user.service";
+import {UserInfoPopperService} from "../Popper/user-info-popper.service";
 
 @Injectable({
     providedIn: 'root'
@@ -13,10 +14,8 @@ import {UserService} from "../User/user.service";
 export class GraphService {
     private _graph!: Graph;
 
-
-    constructor(private api: ApiService, private converter: ConverterService, private userService:UserService, private loading: LoadingService) {
+    constructor(private api: ApiService, private converter: ConverterService, private userService: UserService, private loading: LoadingService, private popper: UserInfoPopperService) {
     }
-
 
     get graph(): Graph {
         return this._graph;
@@ -92,6 +91,10 @@ export class GraphService {
             container: element?.id || "container",
             width: element?.clientWidth,
             height: element?.clientHeight,
+            fitView: true,
+            fitViewPadding: [20, 40, 100, 20],
+            fitCenter: true,
+
         });
     }
 
@@ -99,13 +102,22 @@ export class GraphService {
         this.graph.on('node:mouseenter', (e) => {
             const nodeItem = e.item || '';
             this.graph?.setItemState(nodeItem, 'hover', true);
-          console.log(this.userService.users.find((item)=> {
-            return item.id === parseInt(e.item?._cfg?.id || "")
-          }))
+            let user = this.userService.users.find((item) => {
+                return item.id === parseInt(e.item?._cfg?.id || "")
+            })
+            this.popper.show({
+                top: e.clientY,
+                left: e.clientX + 100,
+                name: user!.owner.name,
+                cardId: user!.cardId,
+                id: user!.id.toString()
+            });
         });
+
         this.graph.on('node:mouseleave', (e) => {
-            const nodeItem = e.item || ''; // Get the target item
-            this.graph?.setItemState(nodeItem, 'hover', false); // Set the state 'hover' of the item to be false
+            const nodeItem = e.item || '';
+            this.graph?.setItemState(nodeItem, 'hover', false);
+            this.popper.hide();
         });
         this.graph.on('node:click', (e) => {
 
@@ -114,7 +126,7 @@ export class GraphService {
 
     public renderGraph(response: Observable<GraphResponseModel>): void {
         response.subscribe((data) => {
-          this.userService.users = data.vertices;
+            this.userService.users = data.vertices;
             this.graph.data({
                 nodes: this.converter.convertNodeServerResponsesToGraphNode(data),
                 edges: this.converter.convertEdgeServerResponsesToGraphEdge(data)
@@ -123,7 +135,7 @@ export class GraphService {
         });
         setInterval(() => {
             this.loading.hideLoading();
-        },100)
+        }, 100)
 
 
     }
