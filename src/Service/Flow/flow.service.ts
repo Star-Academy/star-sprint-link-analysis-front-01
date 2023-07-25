@@ -1,12 +1,13 @@
 import {Injectable} from '@angular/core';
 import {ApiService} from "../Api/api.service";
 import {Vertex} from "../../Model/GraphResponseModel";
+import {FlowDialogComponent} from "../../app/components/flow-dialog/flow-dialog.component";
 
 @Injectable({
     providedIn: 'root'
 })
 export class FlowService {
-
+  private _flowComponent!:FlowDialogComponent;
     constructor(private api: ApiService) {
     }
 
@@ -15,9 +16,18 @@ export class FlowService {
         if (source && destination) {
             let reponse = this.api.maxFlow(source, destination);
             reponse.subscribe((data) => {
-                console.log("Max Flow");
-                console.log(data);
+              this._flowComponent.isShow = true;
+              this._flowComponent.source = source.id.toString();
+              this._flowComponent.target = destination.id.toString();
+              this._flowComponent.amount = data.maxFlow.toString();
             });
         } else throw  new Error("Source or Destination is not defined");
     }
+  get flowComponent(): FlowDialogComponent {
+    return this._flowComponent;
+  }
+
+  set flowComponent(value: FlowDialogComponent) {
+    this._flowComponent = value;
+  }
 }
