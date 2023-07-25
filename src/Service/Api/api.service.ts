@@ -43,7 +43,7 @@ export class ApiService {
       this._currentState = data;
       setInterval(() => {
         this.loading.hideLoading();
-      }, 100);
+      }, 2000);
     })
   }
 }
