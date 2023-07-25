@@ -1,8 +1,8 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed } from "@angular/core/testing";
 
-import { GraphBuilderService } from './graph-builder.service';
+import { GraphBuilderService } from "./graph-builder.service";
 
-describe('GraphBuilderService', () => {
+describe("GraphBuilderService", () => {
   let service: GraphBuilderService;
 
   beforeEach(() => {
@@ -10,7 +10,7 @@ describe('GraphBuilderService', () => {
     service = TestBed.inject(GraphBuilderService);
   });
 
-  it('should be created', () => {
+  it("should be created", () => {
     expect(service).toBeTruthy();
   });
 });

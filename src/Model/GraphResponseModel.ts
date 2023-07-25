@@ -8,7 +8,7 @@ interface Branch {
 interface owner {
   id: number;
   name: string;
-  family: string;
+  familyName: string;
 }
 
 export interface Vertex {

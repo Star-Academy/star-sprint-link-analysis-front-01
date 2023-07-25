@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { GraphResponseModel } from '../../Model/GraphResponseModel';
+import { Injectable } from "@angular/core";
+import { GraphResponseModel } from "../../Model/GraphResponseModel";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class ConverterService {
   constructor() {}

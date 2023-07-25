@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
-import { SearchService } from '../../../Service/Search/search.service';
+import { Component } from "@angular/core";
+import { SearchService } from "../../../Service/Search/search.service";
 
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss'],
+  selector: "app-search",
+  templateUrl: "./search.component.html",
+  styleUrls: ["./search.component.scss"],
   animations: [],
 })
 export class SearchComponent {
