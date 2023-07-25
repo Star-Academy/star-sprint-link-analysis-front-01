@@ -35,7 +35,7 @@ interface Content {
   date: string;
 }
 
-export interface GraphResponseModel {
+export  interface GraphResponseModel {
   vertexCount: number;
   edgeCount: number;
   vertices: Vertex[];

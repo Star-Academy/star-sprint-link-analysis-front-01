@@ -21,6 +21,7 @@ export class GraphService {
     private userService: UserService,
     private eventService: EventService,
     private graphBuilder: GraphBuilderService,
+    private loadingService:LoadingService
   ) {}
 
   get graph(): Graph {
@@ -47,6 +48,7 @@ export class GraphService {
         edges: this.converter.convertEdgeServerResponsesToGraphEdge(data),
       });
       this.graph.render();
+      this.loadingService.hideLoading();
     });
   }
   public expandGraph(id: number, maxLength: number) {
@@ -57,6 +59,7 @@ export class GraphService {
       maxLength,
     );
     this.renderGraph(response);
+
   }
   public getInitGraph(id: number) {
     const response: Observable<GraphResponseModel> = this.api.initGraph(id);
