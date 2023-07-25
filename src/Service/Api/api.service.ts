@@ -61,7 +61,7 @@ export class ApiService {
         }
         console.log('request')
         console.log(request)
-        let response = this.client.post<MaxFlowResponseModel>(maxFlowEndPoint, request);
+        let response: Observable<MaxFlowResponseModel> = this.client.post<MaxFlowResponseModel>(maxFlowEndPoint, request);
         return response;
     }
 

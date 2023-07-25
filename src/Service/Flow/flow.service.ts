@@ -13,7 +13,8 @@ export class FlowService {
     public findMaxFlow(source: Vertex | undefined, destination: Vertex | undefined) {
         console.log("source & destination", source, destination);
         if (source && destination) {
-            this.api.maxFlow(source, destination).subscribe((data) => {
+            let reponse = this.api.maxFlow(source, destination);
+            reponse.subscribe((data) => {
                 console.log("Max Flow");
                 console.log(data);
             });
