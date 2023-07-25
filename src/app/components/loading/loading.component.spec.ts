@@ -18,4 +18,10 @@ describe('LoadingComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  describe("isLoading()",()=> {
+    it('should set boolean variable as expected(True)',()=>{
+      component.isLoading = true;
+      expect(component.isLoading).toBeTruthy()
+    })
+  })
 });

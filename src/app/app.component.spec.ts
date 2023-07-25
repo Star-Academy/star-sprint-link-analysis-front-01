@@ -1,12 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import {ExpandOverlayComponent} from "./components/expand-overlay/expand-overlay.component";
 
 describe('AppComponent', () => {
   beforeEach(() =>
     TestBed.configureTestingModule({
       imports: [RouterTestingModule],
-      declarations: [AppComponent],
+      declarations: [AppComponent,ExpandOverlayComponent],
     }),
   );
 

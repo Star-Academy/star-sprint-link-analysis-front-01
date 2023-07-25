@@ -21,12 +21,7 @@ export class UserinfoDialogComponent implements OverlayComponent {
     popper.component = this;
   }
 
-  getPosition(): { top: number; left: number } {
-    return { left: 0, top: 0 };
-  }
-
   setPosition(tp: number, lft: number): void {
-    console.log({ tp, lft });
     this.top = tp + 'px';
     this.left = lft + 'px';
   }
