@@ -8,7 +8,6 @@ import { GraphService } from "../Graph/graph.service";
 })
 export class SearchService {
   constructor(
-    private api: ApiService,
     private graphService: GraphService,
   ) {}
   public getById(id: number) {

@@ -14,14 +14,14 @@ export class LoadingService {
   }
 
   set loadingComponent(value: LoadingComponent) {
-    this._loadingComponent = value;
+    this.loadingComponent = value;
   }
 
   public showLoading(): void {
-    this._loadingComponent.isLoading = true;
+    this.loadingComponent.isLoading = true;
   }
 
   public hideLoading(): void {
-    this._loadingComponent.isLoading = false;
+    this.loadingComponent.isLoading = false;
   }
 }
