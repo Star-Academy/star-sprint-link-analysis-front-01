@@ -10,11 +10,11 @@ export class ErrorService {
 
   constructor(private loadingService: LoadingService) {}
 
-  public showError(message: string):void {
+  public showError(message: string): void {
     this._errorComponent.show(message);
   }
 
-  public handleError(error: any):void {
+  public handleError(error: any): void {
     this.loadingService.hideLoading();
     this.showError(error.statusText);
   }

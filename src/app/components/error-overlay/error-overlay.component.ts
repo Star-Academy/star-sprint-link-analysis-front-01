@@ -15,11 +15,11 @@ export class ErrorOverlayComponent {
     this.errorService.errorComponent = this;
   }
 
-  public hide() {
+  public hide(): void {
     this.isShowing = false;
   }
 
-  public show(message: string) {
+  public show(message: string): void {
     if (message != 'Unknown Error') {
       this.message = message;
     }

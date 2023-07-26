@@ -1,10 +1,12 @@
 <div class="container">
-    <app-search-box
-            (txtChange)="onTxtChange($event)"
-            iconSrc="assets/icons/search.svg"
-            iconAlt="search icon"
-            [searchPhrase]=searchPhrase
-
-    ></app-search-box>
-    <app-user-search-list [isOpen]="isSearchResultOpen" [onItemSelected]=onSearchResultSelected></app-user-search-list>
+  <app-search-box
+    (txtChange)="onTxtChange($event)"
+    iconSrc="assets/icons/search.svg"
+    iconAlt="search icon"
+    [searchPhrase]="searchPhrase"
+  ></app-search-box>
+  <app-user-search-list
+    [isOpen]="isSearchResultOpen"
+    [onItemSelected]="onSearchResultSelected"
+  ></app-user-search-list>
 </div>

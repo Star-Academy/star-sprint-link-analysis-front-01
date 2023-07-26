@@ -2,21 +2,19 @@ import { TestBed } from '@angular/core/testing';
 import { ConverterService } from './converter.service';
 import { GraphResponseModel } from '../../Model/GraphResponseModel';
 
-describe('ConverterService', ():void => {
+describe('ConverterService', (): void => {
   let service: ConverterService;
 
-  beforeEach(():void => {
+  beforeEach((): void => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(ConverterService);
   });
 
-  it('should be created', ():void => {
+  it('should be created', (): void => {
     expect(service).toBeTruthy();
   });
-  it('should convert node server responses to graph node', () :void=> {
-
+  it('should convert node server responses to graph node', (): void => {
     const testGraphResponse: GraphResponseModel = {
-
       vertices: [
         {
           id: 1,

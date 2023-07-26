@@ -10,9 +10,7 @@ export class UserService {
   constructor() {}
 
   public findById(id: number): Vertex | undefined {
-
-    return this.users.find((item:Vertex):boolean => {
-
+    return this.users.find((item: Vertex): boolean => {
       return item.id === id;
     });
   }

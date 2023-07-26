@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { GraphResponseModel } from '../../Model/GraphResponseModel';
+import { GraphResponseModel, Vertex } from '../../Model/GraphResponseModel';
 
 @Injectable({
   providedIn: 'root',

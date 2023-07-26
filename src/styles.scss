@@ -2,9 +2,9 @@
 :root {
   --main-body-bg: hsl(206deg 31% 90%);
   --primary-gradiant: linear-gradient(
-                  298.69deg,
-                  hsl(205deg 85% 8%) -21.37%,
-                  hsl(205deg 62% 17%) 100%
+    298.69deg,
+    hsl(205deg 85% 8%) -21.37%,
+    hsl(205deg 62% 17%) 100%
   );
   --secondary-color: hsl(184deg 67% 42%);
 }
@@ -12,14 +12,13 @@
 * {
   color: hsl(0deg 0% 100%);
 
-  font-family: Poppins, 'Vazirmatn' , Serif; /* Safari */ /* IE 10 and IE 11 */
+  font-family: Poppins, "Vazirmatn", Serif; /* Safari */ /* IE 10 and IE 11 */
   user-select: none; /* Standard syntax */
 }
 
 body {
   width: 100vw;
   height: 100vh;
-
 
   margin: 0;
   padding: 0;

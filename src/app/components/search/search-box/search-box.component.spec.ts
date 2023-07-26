@@ -3,12 +3,11 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SearchBoxComponent } from './search-box.component';
 import { SearchModule } from '../search.module';
 
-describe('SearchBoxComponent', ():void => {
-
+describe('SearchBoxComponent', (): void => {
   let component: SearchBoxComponent;
   let fixture: ComponentFixture<SearchBoxComponent>;
-  beforeEach(() :void=> {
 
+  beforeEach((): void => {
     TestBed.configureTestingModule({
       declarations: [SearchBoxComponent],
       imports: [SearchModule],
@@ -18,7 +17,7 @@ describe('SearchBoxComponent', ():void => {
     fixture.detectChanges();
   });
 
-  it('should create', ():void => {
+  it('should create', (): void => {
     expect(component).toBeTruthy();
   });
 });

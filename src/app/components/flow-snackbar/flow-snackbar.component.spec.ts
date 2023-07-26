@@ -1,12 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { FlowSnackbarComponent } from './flow-snackbar.component';
 
-describe('FlowSnackbarComponent', () => {
+describe('FlowSnackbarComponent', (): void => {
   let component: FlowSnackbarComponent;
   let fixture: ComponentFixture<FlowSnackbarComponent>;
 
-  beforeEach(() => {
+  beforeEach((): void => {
     TestBed.configureTestingModule({
       declarations: [FlowSnackbarComponent],
     });
@@ -15,20 +14,21 @@ describe('FlowSnackbarComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', ():void => {
+  it('should create', (): void => {
     expect(component).toBeTruthy();
   });
-  describe("show()" ,():void=>{
 
-    it('should change isShow to true', function ():void {
+  describe('show()', (): void => {
+    it('should change isShow to true', function (): void {
       component.show();
-      expect(component.isShow).toEqual(true)
+      expect(component.isShow).toEqual(true);
     });
-  })
-  describe("hide()" ,():void=>{
-    it('should change isShow to false', function ():void {
+  });
+
+  describe('hide()', (): void => {
+    it('should change isShow to false', function (): void {
       component.hide();
-      expect(component.isShow).toEqual(false)
+      expect(component.isShow).toEqual(false);
     });
-  })
+  });
 });

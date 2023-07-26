@@ -6,9 +6,9 @@ import { UserService } from '../User/user.service';
 import { EventService } from '../Event/event.service';
 import { GraphBuilderService } from './Builder/graph-builder.service';
 import { testGraphResponse } from '../../constants';
-import {  of } from 'rxjs';
+import { of } from 'rxjs';
 
-describe('GraphService', ():void => {
+describe('GraphService', (): void => {
   let service: GraphService;
 
   let api: ApiService;
@@ -25,8 +25,7 @@ describe('GraphService', ():void => {
 
   let graphBuilder: GraphBuilderService;
 
-  beforeEach(() :void=> {
-
+  beforeEach((): void => {
     apiSpy = jasmine.createSpyObj(ApiService, ['expandGraph']);
     converterSpy = jasmine.createSpyObj(ConverterService, [
       'convertNodeServerResponsesToGraphNode',
@@ -38,7 +37,6 @@ describe('GraphService', ():void => {
     ]);
 
     TestBed.configureTestingModule({
-
       providers: [
         GraphService,
         { provide: ApiService, useValue: apiSpy },
@@ -56,11 +54,11 @@ describe('GraphService', ():void => {
     eventService = TestBed.inject(EventService);
   });
 
-  it('should be created', ():void => {
+  it('should be created', (): void => {
     expect(service).toBeTruthy();
   });
 
-  it('should call builder on graphInit', function ():void {
+  it('should call builder on graphInit', function (): void {
     spyOn(graphBuilder, 'buildGraph');
     service.initGraph(null);
 
@@ -68,12 +66,12 @@ describe('GraphService', ():void => {
     expect(graphBuilder.buildGraph).toHaveBeenCalled();
   });
 
-  it('should call eventService on graphEvents', function ():void {
+  it('should call eventService on graphEvents', function (): void {
     eventServiceSpy.initialGraphEvents.and.callThrough();
     service.graphEvents();
     expect(eventServiceSpy.initialGraphEvents).toHaveBeenCalled();
   });
-  it('should call api on renderGraph', function ():void {
+  it('should call api on renderGraph', function (): void {
     apiSpy.expandGraph.and.returnValue(of(testGraphResponse));
     spyOn(service, 'renderGraph').and.returnValue();
 

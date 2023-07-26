@@ -9,7 +9,7 @@ import { LoadingService } from '../../../Service/Loading/loading.service';
 export class LoadingComponent {
   @Input() message: string = 'Loading...';
 
-  private _isLoading = false;
+  private _isLoading: boolean = false;
 
   constructor(private loadingService: LoadingService) {
     loadingService.loadingComponent = this;
