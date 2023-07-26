@@ -25,6 +25,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@popperjs/core": "^2.11.8",
+    "ngx-clipboard": "^16.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "webicon": "^0.10.7",

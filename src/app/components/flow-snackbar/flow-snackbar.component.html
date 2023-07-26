@@ -1,4 +1,4 @@
-<div class="glass snackbar">
+<div class="glass snackbar" *ngIf="isShow">
   <img [alt]="alt" [src]="iconSrc" />
   <p>{{ message }}</p>
 </div>

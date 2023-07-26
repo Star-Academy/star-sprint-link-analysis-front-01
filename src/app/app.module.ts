@@ -12,6 +12,7 @@ import { GraphModule } from "./components/graph/graph.module";
 import { HttpClientModule } from "@angular/common/http";
 import { LoadingModule } from "./components/loading/loading.module";
 import { FormsModule } from "@angular/forms";
+import {ClipboardModule} from "ngx-clipboard";
 
 @NgModule({
   declarations: [AppComponent, ExpandOverlayComponent, UserinfoDialogComponent],
@@ -26,6 +27,7 @@ import { FormsModule } from "@angular/forms";
     GraphModule,
     LoadingModule,
     FormsModule,
+    ClipboardModule
   ],
   providers: [],
   bootstrap: [AppComponent],
