@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
-import { ErrorOverlayComponent } from '../../app/components/error-overlay/error-overlay.component';
-import { LoadingService } from '../Loading/loading.service';
+import { Injectable } from "@angular/core";
+import { ErrorOverlayComponent } from "../../app/components/error-overlay/error-overlay.component";
+import { LoadingService } from "../Loading/loading.service";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class ErrorService {
   private _errorComponent!: ErrorOverlayComponent;

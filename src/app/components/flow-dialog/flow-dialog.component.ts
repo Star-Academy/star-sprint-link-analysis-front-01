@@ -1,10 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FlowService } from '../../../Service/Flow/flow.service';
+import { Component, Input, OnInit } from "@angular/core";
+import { FlowService } from "../../../Service/Flow/flow.service";
 
 @Component({
-  selector: 'app-flow-dialog',
-  templateUrl: './flow-dialog.component.html',
-  styleUrls: ['./flow-dialog.component.scss'],
+  selector: "app-flow-dialog",
+  templateUrl: "./flow-dialog.component.html",
+  styleUrls: ["./flow-dialog.component.scss"],
 })
 export class FlowDialogComponent implements OnInit {
   @Input() source!: string;

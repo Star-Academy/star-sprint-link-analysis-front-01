@@ -1,8 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { GraphComponent } from './graph.component';
-import { GraphService } from '../../../Service/Graph/graph.service';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { GraphComponent } from "./graph.component";
+import { GraphService } from "../../../Service/Graph/graph.service";
 
-describe('GraphComponent', (): void => {
+describe("GraphComponent", (): void => {
   let component: GraphComponent;
   let fixture: ComponentFixture<GraphComponent>;
   let graphService: GraphService;
@@ -10,8 +10,8 @@ describe('GraphComponent', (): void => {
 
   beforeEach((): void => {
     graphServiceSpy = jasmine.createSpyObj(GraphService, [
-      'initGraph',
-      'graphEvents',
+      "initGraph",
+      "graphEvents",
     ]);
 
     TestBed.configureTestingModule({
@@ -31,20 +31,20 @@ describe('GraphComponent', (): void => {
     fixture.detectChanges();
   });
 
-  it('should create component', (): void => {
+  it("should create component", (): void => {
     expect(component).toBeTruthy();
   });
 
-  describe('ngOnInit()', (): void => {
-    it('should call through initGraph in GraphService', function (): void {
+  describe("ngOnInit()", (): void => {
+    it("should call through initGraph in GraphService", function (): void {
       graphServiceSpy.initGraph.and.callThrough();
       component.ngOnInit();
       expect(graphService.initGraph).toHaveBeenCalled();
     });
   });
 
-  describe('ngAfterViewInit()', (): void => {
-    it('should call through graphEvents in GraphService', function (): void {
+  describe("ngAfterViewInit()", (): void => {
+    it("should call through graphEvents in GraphService", function (): void {
       graphServiceSpy.graphEvents.and.callThrough();
       component.ngOnInit();
       expect(graphService.graphEvents).toHaveBeenCalled();

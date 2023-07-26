@@ -1,20 +1,20 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { GraphResponseModel, Vertex } from '../../Model/GraphResponseModel';
-import { Observable } from 'rxjs';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { GraphResponseModel, Vertex } from "../../Model/GraphResponseModel";
+import { Observable } from "rxjs";
 import {
   expandEndPoint,
   maxFlowEndPoint,
   serverUrl,
   transactionVisualizerEndpoint,
-} from '../../constants';
-import ExpandRequestModel from '../../Model/ExpandRequestModel';
-import { LoadingService } from '../Loading/loading.service';
-import MaxFlowRequestModel from '../../Model/MaxFlowRequestModel';
-import MaxFlowResponseModel from '../../Model/MaxFlowResponseModel';
+} from "../../constants";
+import ExpandRequestModel from "../../Model/ExpandRequestModel";
+import { LoadingService } from "../Loading/loading.service";
+import MaxFlowRequestModel from "../../Model/MaxFlowRequestModel";
+import MaxFlowResponseModel from "../../Model/MaxFlowResponseModel";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class ApiService {
   private _currentState!: GraphResponseModel;
@@ -53,7 +53,7 @@ export class ApiService {
       this.setState(response);
       return response;
     }
-    throw new Error('User Not Found');
+    throw new Error("User Not Found");
   }
 
   public maxFlow(
@@ -70,7 +70,7 @@ export class ApiService {
   }
 
   public searchByName(name: string): Observable<Vertex[]> {
-    return this.client.get<Vertex[]>(serverUrl + 'account', {
+    return this.client.get<Vertex[]>(serverUrl + "account", {
       params: {
         query: name,
       },

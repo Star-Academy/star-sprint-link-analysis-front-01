@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
-import { ApiService } from '../Api/api.service';
-import { Vertex } from '../../Model/GraphResponseModel';
-import { FlowDialogComponent } from '../../app/components/flow-dialog/flow-dialog.component';
-import { Observable } from 'rxjs';
-import MaxFlowResponseModel from '../../Model/MaxFlowResponseModel';
+import { Injectable } from "@angular/core";
+import { ApiService } from "../Api/api.service";
+import { Vertex } from "../../Model/GraphResponseModel";
+import { FlowDialogComponent } from "../../app/components/flow-dialog/flow-dialog.component";
+import { Observable } from "rxjs";
+import MaxFlowResponseModel from "../../Model/MaxFlowResponseModel";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class FlowService {
   private _flowComponent!: FlowDialogComponent;
@@ -16,7 +16,7 @@ export class FlowService {
     source: Vertex | undefined,
     destination: Vertex | undefined,
   ) {
-    console.log('source & destination', source, destination);
+    console.log("source & destination", source, destination);
     if (source && destination) {
       let response: Observable<MaxFlowResponseModel> = this.api.maxFlow(
         source,
@@ -28,7 +28,7 @@ export class FlowService {
         this._flowComponent.target = destination.id.toString();
         this._flowComponent.amount = data.maxFlow.toString();
       });
-    } else throw new Error('Source or Destination is not defined');
+    } else throw new Error("Source or Destination is not defined");
   }
 
   get flowComponent(): FlowDialogComponent {

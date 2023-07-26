@@ -1,7 +1,7 @@
-import { TestBed } from '@angular/core/testing';
-import { ErrorService } from './error.service';
+import { TestBed } from "@angular/core/testing";
+import { ErrorService } from "./error.service";
 
-describe('ErrorService', (): void => {
+describe("ErrorService", (): void => {
   let service: ErrorService;
 
   beforeEach((): void => {
@@ -9,7 +9,7 @@ describe('ErrorService', (): void => {
     service = TestBed.inject(ErrorService);
   });
 
-  it('should be created', (): void => {
+  it("should be created", (): void => {
     expect(service).toBeTruthy();
   });
 });

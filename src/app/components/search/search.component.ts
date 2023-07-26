@@ -1,19 +1,19 @@
-import { Component, Input, ViewChild } from '@angular/core';
-import { SearchService } from '../../../Service/Search/search.service';
-import { Vertex } from '../../../Model/GraphResponseModel';
-import { SearchBoxComponent } from './search-box/search-box.component';
+import { Component, Input, ViewChild } from "@angular/core";
+import { SearchService } from "../../../Service/Search/search.service";
+import { Vertex } from "../../../Model/GraphResponseModel";
+import { SearchBoxComponent } from "./search-box/search-box.component";
 
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss'],
+  selector: "app-search",
+  templateUrl: "./search.component.html",
+  styleUrls: ["./search.component.scss"],
   animations: [],
 })
 export class SearchComponent {
   @Input() isSearchResultOpen: boolean = false;
   @ViewChild(SearchBoxComponent)
   searchBoxComponentElementRef!: SearchBoxComponent;
-  public searchPhrase: string = '';
+  public searchPhrase: string = "";
 
   constructor(private searchService: SearchService) {}
 

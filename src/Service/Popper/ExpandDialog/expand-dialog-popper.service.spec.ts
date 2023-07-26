@@ -1,7 +1,7 @@
-import { TestBed } from '@angular/core/testing';
-import { ExpandDialogPopperService } from './expand-dialog-popper.service';
+import { TestBed } from "@angular/core/testing";
+import { ExpandDialogPopperService } from "./expand-dialog-popper.service";
 
-describe('ExpandDialogPopperService', (): void => {
+describe("ExpandDialogPopperService", (): void => {
   let service: ExpandDialogPopperService;
 
   beforeEach((): void => {
@@ -9,7 +9,7 @@ describe('ExpandDialogPopperService', (): void => {
     service = TestBed.inject(ExpandDialogPopperService);
   });
 
-  it('should be created', (): void => {
+  it("should be created", (): void => {
     expect(service).toBeTruthy();
   });
 });

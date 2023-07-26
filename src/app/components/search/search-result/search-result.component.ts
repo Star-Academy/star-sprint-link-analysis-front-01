@@ -1,11 +1,11 @@
-import { Component, HostListener, Input } from '@angular/core';
-import { Vertex } from '../../../../Model/GraphResponseModel';
-import { SearchService } from '../../../../Service/Search/search.service';
+import { Component, HostListener, Input } from "@angular/core";
+import { Vertex } from "../../../../Model/GraphResponseModel";
+import { SearchService } from "../../../../Service/Search/search.service";
 
 @Component({
-  selector: 'app-search-result',
-  templateUrl: './search-result.component.html',
-  styleUrls: ['./search-result.component.scss'],
+  selector: "app-search-result",
+  templateUrl: "./search-result.component.html",
+  styleUrls: ["./search-result.component.scss"],
 })
 export class SearchResultComponent {
   @Input() user!: Vertex;
@@ -13,7 +13,7 @@ export class SearchResultComponent {
 
   constructor(private searchService: SearchService) {}
 
-  @HostListener('click', ['$event'])
+  @HostListener("click", ["$event"])
   public onClick(event: MouseEvent): void {
     this.onItemSelected(this.user);
   }

@@ -1,16 +1,16 @@
-import { Injectable } from '@angular/core';
-import { Graph } from '@antv/g6';
-import { ApiService } from '../Api/api.service';
-import { ConverterService } from '../Converter/converter.service';
-import { GraphResponseModel, Vertex } from '../../Model/GraphResponseModel';
-import { Observable } from 'rxjs';
-import { LoadingService } from '../Loading/loading.service';
-import { UserService } from '../User/user.service';
-import { EventService } from '../Event/event.service';
-import { GraphBuilderService } from './Builder/graph-builder.service';
+import { Injectable } from "@angular/core";
+import { Graph } from "@antv/g6";
+import { ApiService } from "../Api/api.service";
+import { ConverterService } from "../Converter/converter.service";
+import { GraphResponseModel, Vertex } from "../../Model/GraphResponseModel";
+import { Observable } from "rxjs";
+import { LoadingService } from "../Loading/loading.service";
+import { UserService } from "../User/user.service";
+import { EventService } from "../Event/event.service";
+import { GraphBuilderService } from "./Builder/graph-builder.service";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class GraphService {
   private _graph!: Graph;

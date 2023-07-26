@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ErrorOverlayComponent } from './error-overlay.component';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { ErrorOverlayComponent } from "./error-overlay.component";
 
-describe('ErrorOverlayComponent', (): void => {
+describe("ErrorOverlayComponent", (): void => {
   let component: ErrorOverlayComponent;
   let fixture: ComponentFixture<ErrorOverlayComponent>;
 
@@ -14,24 +14,24 @@ describe('ErrorOverlayComponent', (): void => {
     fixture.detectChanges();
   });
 
-  it('should create', (): void => {
+  it("should create", (): void => {
     expect(component).toBeTruthy();
   });
 
-  describe('hide()', (): void => {
-    it('should change isShowing to false', function (): void {
+  describe("hide()", (): void => {
+    it("should change isShowing to false", function (): void {
       component.isShowing = true;
       component.hide();
       expect(component.isShowing).toBeFalse();
     });
   });
 
-  describe('show()', (): void => {
-    it('should change isShowing to true and message should change to test', function (): void {
+  describe("show()", (): void => {
+    it("should change isShowing to true and message should change to test", function (): void {
       component.isShowing = false;
-      component.show('test');
+      component.show("test");
       expect(component.isShowing).toBeTrue();
-      expect(component.message).toEqual('test');
+      expect(component.message).toEqual("test");
     });
   });
 });

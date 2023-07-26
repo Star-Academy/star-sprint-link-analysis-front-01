@@ -1,4 +1,4 @@
-import { GraphResponseModel, Vertex } from './GraphResponseModel';
+import { GraphResponseModel, Vertex } from "./GraphResponseModel";
 
 export default interface MaxFlowRequestModel {
   currentState: GraphResponseModel;
