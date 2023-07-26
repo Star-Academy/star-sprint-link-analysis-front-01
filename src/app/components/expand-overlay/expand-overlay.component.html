@@ -4,6 +4,7 @@
   [style.--left]="left"
   *ngIf="isShow"
 >
+
   <input
     class="length-input glass-brighter"
     placeholder="Length..."
@@ -11,7 +12,8 @@
     #inputRef
     [value]="maxLength"
     (input)="maxLength = parseInt(inputRef.value)"
+
   />
   <button (click)="onExpand()">Continue</button>
-  <button (click)="onClose()">Cancel</button>
+  <button class="cancel" (click)="onClose()">Cancel</button>
 </div>

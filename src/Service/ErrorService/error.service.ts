@@ -16,7 +16,7 @@ export class ErrorService {
 
   public handleError(error: any): void {
     this.loadingService.hideLoading();
-    this.showError(error.statusText);
+    this.showError(error.message);
   }
 
   set errorComponent(value: ErrorOverlayComponent) {

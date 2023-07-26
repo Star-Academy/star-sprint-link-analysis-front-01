@@ -1,81 +1,92 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import OverlayComponent from '../../../Model/OverlayComponent';
-import { ExpandDialogPopperService } from '../../../Service/Popper/ExpandDialog/expand-dialog-popper.service';
-import { GraphService } from '../../../Service/Graph/graph.service';
+import {ExpandDialogPopperService} from '../../../Service/Popper/ExpandDialog/expand-dialog-popper.service';
+import {GraphService} from '../../../Service/Graph/graph.service';
 
 @Component({
-  selector: 'app-expand-overlay',
-  templateUrl: './expand-overlay.component.html',
-  styleUrls: ['./expand-overlay.component.scss'],
+    selector: 'app-expand-overlay',
+    templateUrl: './expand-overlay.component.html',
+    styleUrls: ['./expand-overlay.component.scss'],
 })
 export class ExpandOverlayComponent implements OverlayComponent, OnInit {
-  public isShow: boolean = false;
-  public top: string = '0';
-  public left: string = '0';
-  private _maxLength: number = 0;
+    public isShow: boolean = false;
+    public top: string = '0';
+    public left: string = '0';
+    private _maxLength: number = 0;
 
-  private _id!: number;
-  private _isShiftDown: boolean = false;
-  constructor(
-    private expandPopper: ExpandDialogPopperService,
-    private graphService: GraphService,
-  ) {}
+    private _id!: number;
+    private _isShiftDown: boolean = false;
 
-  ngOnInit(): void {
-    this.expandPopper.component = this;
-  }
-  @HostListener('document:keydown.shift', ['$event'])
-  public shiftDown(e: KeyboardEvent): void {
-    if (e.shiftKey) {
-      this._isShiftDown = true;
+    constructor(
+        private expandPopper: ExpandDialogPopperService,
+        private graphService: GraphService,
+    ) {
     }
-  }
 
-  @HostListener('document:keyup.shift', ['$event'])
-  public shiftUp(e: KeyboardEvent): void {
-    if (!e.shiftKey) {
-      this._isShiftDown = false;
+    ngOnInit(): void {
+        this.expandPopper.component = this;
     }
-  }
 
-  public show(): void {
-    if (!this._isShiftDown) {
-      this.isShow = true;
+    @HostListener('document:keydown.shift', ['$event'])
+    public shiftDown(e: KeyboardEvent): void {
+        if (e.shiftKey) {
+            this._isShiftDown = true;
+        }
     }
-  }
 
-  public hide(): void {
-    this.isShow = false;
-  }
+    @HostListener('document:keyup.shift', ['$event'])
+    public shiftUp(e: KeyboardEvent): void {
+        if (!e.shiftKey) {
+            this._isShiftDown = false;
+        }
+    }
 
-  public setAttribute(context: any): void {
-    this._id = parseInt(context.id);
-  }
+    public show(): void {
+        if (!this._isShiftDown) {
+            this.isShow = true;
+        }
+    }
 
-  public setPosition(tp: number, lft: number): void {
-    this.top = tp + 'px';
-    this.left = lft + 'px';
-  }
+    public hide(): void {
+        this.isShow = false;
+    }
 
-  public onExpand(): void {
-    this.graphService.expandGraph(this._id, this._maxLength);
-    this.isShow = false;
-  }
+    public setAttribute(context: any): void {
+        this._id = parseInt(context.id);
+    }
 
-  public onClose(): void {
-    this.isShow = false;
-  }
-  get maxLength(): number {
-    return this._maxLength;
-  }
+    public setPosition(tp: number, lft: number): void {
+        this.top = tp + 'px';
+        this.left = lft + 'px';
+    }
 
-  set maxLength(value: number) {
-    this._maxLength = value;
-  }
+    public onExpand(): void {
+        if (isNaN(this._maxLength)) {
+            this.isShow = false;
+            throw new Error("Please enter a valid number");
 
-  get id(): number {
-    return this._id;
-  }
+        } else {
+            this.graphService.expandGraph(this._id, this._maxLength);
+            this.isShow = false;
 
-  protected readonly parseInt = parseInt;
+        }
+    }
+
+    public onClose(): void {
+        this.isShow = false;
+    }
+
+    get maxLength(): number {
+        return this._maxLength;
+    }
+
+    set maxLength(value: number) {
+        this._maxLength = value;
+    }
+
+    get id(): number {
+        return this._id;
+    }
+
+    protected readonly parseInt = parseInt;
 }

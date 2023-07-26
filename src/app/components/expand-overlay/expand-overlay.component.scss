@@ -16,6 +16,11 @@
   border-radius: 0.8rem;
 
   transform: translate(-50%, -50%);
+
+  .cancel {
+    background-color: hsl(0deg 0% 54%);
+  }
+
 }
 
 .length-input {

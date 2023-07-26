@@ -1,7 +1,6 @@
 .snackbar {
   position: absolute;
-  inset-block-end: 2rem;
-  inset-inline-start: 2rem;
+
 
   display: flex;
   flex-direction: row;
@@ -13,4 +12,43 @@
   border-radius: 1rem;
 
   font-size: smaller;
+
+}
+
+.open {
+  animation: 1s cubic-bezier(0.075, 0.82, 0.165, 1) alternate open-anim forwards;
+}
+
+.close {
+  animation: 1s cubic-bezier(0.075, 0.82, 0.165, 1) alternate close-anim forwards;
+}
+
+@keyframes open-anim {
+  from {
+    opacity: 0;
+
+    inset-block-end: -5rem;
+    inset-inline-start: 2rem;
+  }
+
+  to {
+    inset-block-end: 2rem;
+    inset-inline-start: 2rem;
+  }
+
+}
+
+@keyframes close-anim {
+  from {
+    inset-block-end: 2rem;
+    inset-inline-start: 2rem;
+  }
+
+  to {
+    opacity: 0;
+
+    inset-block-end: -5rem;
+    inset-inline-start: 2rem;
+  }
+
 }

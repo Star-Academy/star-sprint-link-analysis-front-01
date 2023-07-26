@@ -37,7 +37,7 @@ import { MyErrorHandlerService } from '../Service/GlobalErrorHandler/my-error-ha
     FormsModule,
     ClipboardModule,
   ],
-  // providers: [{ provide: ErrorHandler, useClass: MyErrorHandlerService }],
+  providers: [{ provide: ErrorHandler, useClass: MyErrorHandlerService }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
