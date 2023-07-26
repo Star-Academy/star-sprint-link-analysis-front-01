@@ -1,11 +1,13 @@
 <div class="wrapper">
-  <div class="container">
-    <app-loading> </app-loading>
-    <app-expand-overlay></app-expand-overlay>
-    <app-userinfo-dialog></app-userinfo-dialog>
-    <app-search></app-search>
-    <app-flow-dialog iconSrc="assets/icons/flow.svg" iconAlt="flow icon"></app-flow-dialog>
-    <app-flow-snackbar iconSrc="assets/icons/flow.svg" alt="flow svg" message="You Are Calculating Max Flow..."></app-flow-snackbar>
-    <app-graph> </app-graph>
-  </div>
+    <div class="container">
+        <app-loading></app-loading>
+        <app-error-overlay></app-error-overlay>
+        <app-expand-overlay></app-expand-overlay>
+        <app-userinfo-dialog></app-userinfo-dialog>
+        <app-search></app-search>
+        <app-flow-dialog iconSrc="assets/icons/flow.svg" iconAlt="flow icon"></app-flow-dialog>
+        <app-flow-snackbar iconSrc="assets/icons/flow.svg" alt="flow svg"
+                           message="You Are Calculating Max Flow..."></app-flow-snackbar>
+        <app-graph></app-graph>
+    </div>
 </div>
