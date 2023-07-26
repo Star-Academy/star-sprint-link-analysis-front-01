@@ -12,31 +12,42 @@ export class UserinfoDialogComponent implements OverlayComponent {
   @Input() name: string = '';
   @Input() id: string = '';
   @Input() cardId: string = '';
-  top: string = '0px';
-  left: string = '0px';
 
-  public isShow: boolean = false;
+  private _top: string = '0px';
+  private _left: string = '0px';
+  private _isShow: boolean = false;
 
   constructor(private popper: UserInfoPopperService) {
     popper.component = this;
   }
 
-  setPosition(tp: number, lft: number): void {
-    this.top = tp + 'px';
-    this.left = lft + 'px';
+  public setPosition(tp: number, lft: number): void {
+    this._top = tp + 'px';
+    this._left = lft + 'px';
   }
 
-  hide(): void {
-    this.isShow = false;
+  public hide(): void {
+    this._isShow = false;
   }
 
-  show(): void {
-    this.isShow = true;
+  public show(): void {
+    this._isShow = true;
   }
 
-  setAttribute(context: any): void {
+  public setAttribute(context: any): void {
     this.name = context.name;
     this.id = context.id;
     this.cardId = context.cardId;
+  }
+  get top(): string {
+    return this._top;
+  }
+
+  get left(): string {
+    return this._left;
+  }
+
+  get isShow(): boolean {
+    return this._isShow;
   }
 }

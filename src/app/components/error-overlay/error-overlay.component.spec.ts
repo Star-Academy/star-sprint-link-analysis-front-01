@@ -8,7 +8,7 @@ describe('ErrorOverlayComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ErrorOverlayComponent]
+      declarations: [ErrorOverlayComponent],
     });
     fixture = TestBed.createComponent(ErrorOverlayComponent);
     component = fixture.componentInstance;

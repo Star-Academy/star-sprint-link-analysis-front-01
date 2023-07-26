@@ -1,8 +1,8 @@
-import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserSearchListComponent } from "./user-search-list.component";
+import { UserSearchListComponent } from './user-search-list.component';
 
-describe("UserSearchListComponent", () => {
+describe('UserSearchListComponent', () => {
   let component: UserSearchListComponent;
   let fixture: ComponentFixture<UserSearchListComponent>;
 
@@ -15,7 +15,7 @@ describe("UserSearchListComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

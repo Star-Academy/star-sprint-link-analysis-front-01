@@ -1,21 +1,13 @@
-import { Injectable } from "@angular/core";
-import { LoadingComponent } from "../../app/components/loading/loading.component";
+import { Injectable } from '@angular/core';
+import { LoadingComponent } from '../../app/components/loading/loading.component';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class LoadingService {
-  constructor() {}
-
   private _loadingComponent!: LoadingComponent;
 
-  get loadingComponent(): LoadingComponent {
-    return this._loadingComponent;
-  }
-
-  set loadingComponent(value: LoadingComponent) {
-    this._loadingComponent = value;
-  }
+  constructor() {}
 
   public showLoading(): void {
     this._loadingComponent.isLoading = true;
@@ -23,5 +15,9 @@ export class LoadingService {
 
   public hideLoading(): void {
     this._loadingComponent.isLoading = false;
+  }
+
+  set loadingComponent(value: LoadingComponent) {
+    this._loadingComponent = value;
   }
 }

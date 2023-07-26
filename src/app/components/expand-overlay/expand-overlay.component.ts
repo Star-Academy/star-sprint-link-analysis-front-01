@@ -1,63 +1,77 @@
-import {Component, OnInit,HostListener} from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import OverlayComponent from '../../../Model/OverlayComponent';
-import {ExpandDialogPopperService} from "../../../Service/Popper/ExpandDialog/expand-dialog-popper.service";
-import {GraphService} from "../../../Service/Graph/graph.service";
+import { ExpandDialogPopperService } from '../../../Service/Popper/ExpandDialog/expand-dialog-popper.service';
+import { GraphService } from '../../../Service/Graph/graph.service';
 
 @Component({
   selector: 'app-expand-overlay',
   templateUrl: './expand-overlay.component.html',
   styleUrls: ['./expand-overlay.component.scss'],
 })
-export class ExpandOverlayComponent implements OverlayComponent,OnInit {
+export class ExpandOverlayComponent implements OverlayComponent, OnInit {
   public isShow: boolean = false;
-  public top: string = '0px';
-  public left: string = '0px';
-  maxLength:number = 0;
-  id!:number;
-  isShiftDown:boolean = false;
-  constructor(private expandPopper:ExpandDialogPopperService,private graphService:GraphService) {
+  public top: string = '0';
+  public left: string = '0';
+
+  private _maxLength: number = 0;
+  private id!: number;
+  private isShiftDown: boolean = false;
+
+  constructor(
+    private expandPopper: ExpandDialogPopperService,
+    private graphService: GraphService,
+  ) {}
+  ngOnInit(): void {
+    this.expandPopper.component = this;
   }
+
+  @HostListener('document:keydown.shift', ['$event'])
+  public shiftDown(e: KeyboardEvent): void {
+    if (e.shiftKey) {
+      this.isShiftDown = true;
+    }
+  }
+
+  @HostListener('document:keyup.shift', ['$event'])
+  public shiftUp(e: KeyboardEvent): void {
+    if (!e.shiftKey) {
+      this.isShiftDown = false;
+    }
+  }
+
   show(): void {
-    if (!this.isShiftDown)
-    {
+    if (!this.isShiftDown) {
       this.isShow = true;
     }
   }
 
-  hide(): void {
+  public hide(): void {
     this.isShow = false;
   }
 
-  setAttribute(context: any): void {
+  public setAttribute(context: any): void {
     this.id = parseInt(context.id);
   }
 
-  setPosition(tp: number, lft: number): void {
+  public setPosition(tp: number, lft: number): void {
     this.top = tp + 'px';
     this.left = lft + 'px';
   }
-  onExpand() {
-    this.graphService.expandGraph(this.id,this.maxLength)
+
+  public onExpand(): void {
+    this.graphService.expandGraph(this.id, this._maxLength);
     this.isShow = false;
   }
-  onClose() {
+
+  public onClose(): void {
     this.isShow = false;
   }
-  ngOnInit(): void {
-    this.expandPopper.component = this;
+
+  get maxLength(): number {
+    return this._maxLength;
   }
-  @HostListener('document:keydown.shift',["$event"])
-  shiftDown(e:KeyboardEvent){
-    if(e.shiftKey)
-    {
-      this.isShiftDown = true;
-    }
-  }
-  @HostListener('document:keyup.shift',["$event"])
-  shiftUp(e:KeyboardEvent) {
-    if(!e.shiftKey)
-    {
-      this.isShiftDown = false;
-    }
+
+  set maxLength(value: number) {
+    this._maxLength = value;
   }
 }

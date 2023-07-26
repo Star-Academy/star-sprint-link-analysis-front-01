@@ -3,7 +3,12 @@
   <p>Max Flow from {{ source }} to {{ target }} is:</p>
   <div class="maxflow">
     <p>{{ amount }}</p>
-    <img alt="copy icon" src="assets/icons/copy.svg" ngxClipboard [cbContent]="amount" />
+    <img
+      alt="copy icon"
+      src="assets/icons/copy.svg"
+      ngxClipboard
+      [cbContent]="amount"
+    />
   </div>
   <button (click)="onClose()">Continue</button>
 </div>

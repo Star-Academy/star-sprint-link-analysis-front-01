@@ -1,7 +1,7 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {ExpandOverlayComponent} from './expand-overlay.component';
-import {GraphService} from "../../../Service/Graph/graph.service";
-import Context from "../../../Model/Context";
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ExpandOverlayComponent } from './expand-overlay.component';
+import { GraphService } from '../../../Service/Graph/graph.service';
+import Context from '../../../Model/Context';
 
 describe('ExpandOverlayComponent', () => {
   let component: ExpandOverlayComponent;
@@ -9,12 +9,16 @@ describe('ExpandOverlayComponent', () => {
   let graphService: GraphService;
   let graphServiceSpy: jasmine.SpyObj<any>;
   beforeEach(() => {
-    graphServiceSpy = jasmine.createSpyObj(GraphService, ["expandGraph"])
+    graphServiceSpy = jasmine.createSpyObj(GraphService, ['expandGraph']);
     TestBed.configureTestingModule({
       declarations: [ExpandOverlayComponent],
-      providers: [ExpandOverlayComponent, {
-        provide: GraphService, useValue: graphServiceSpy,
-      }]
+      providers: [
+        ExpandOverlayComponent,
+        {
+          provide: GraphService,
+          useValue: graphServiceSpy,
+        },
+      ],
     });
     graphService = TestBed.inject(GraphService);
     fixture = TestBed.createComponent(ExpandOverlayComponent);
@@ -25,53 +29,54 @@ describe('ExpandOverlayComponent', () => {
   it('should create component', () => {
     expect(component).toBeTruthy();
   });
-  describe("onClose()", ()=>{
+  describe('onClose()', () => {
     it('should be change isShow to false', function () {
       component.isShow = true;
-      component.onClose()
+      component.onClose();
       expect(component.isShow).toEqual(false);
     });
-  })
-  describe("hide()",()=> {
+  });
+  describe('hide()', () => {
     it('should be change isShow to false', function () {
       component.isShow = true;
       component.hide();
       expect(component.isShow).toEqual(false);
     });
-  })
-  describe("show()",()=> {
+  });
+  describe('show()', () => {
     it('should be change isShow to true', function () {
       component.isShow = false;
       component.show();
       expect(component.isShow).toEqual(true);
     });
-  })
-  describe("setPosition()",()=> {
+  });
+  describe('setPosition()', () => {
     it('should be equal to expected assigned value', function () {
-      let top:number = 100,left:number = 100;
-      component.setPosition(top,left);
-      expect(component.left).toEqual(left + "px");
-      expect(component.top).toEqual(top + "px");
+      let top: number = 100,
+        left: number = 100;
+      component.setPosition(top, left);
+      expect(component.left).toEqual(left + 'px');
+      expect(component.top).toEqual(top + 'px');
     });
-  })
-  describe("setAttribute()",()=> {
+  });
+  describe('setAttribute()', () => {
     it('should be equal to expected assigned value', function () {
-      let context:Context = {
+      let context: Context = {
         top: 10,
         left: 20,
-        id: "302323233323",
-        name: "mahdi",
-        cardId: "4231321"
-      }
+        id: '302323233323',
+        name: 'mahdi',
+        cardId: '4231321',
+      };
       component.setAttribute(context);
       expect(component.id).toEqual(parseInt(context.id));
     });
-  })
-  describe("onExpand()",()=>{
+  });
+  describe('onExpand()', () => {
     it('should run this method for service', function () {
       graphServiceSpy.expandGraph.and.callThrough();
-      component.onExpand()
+      component.onExpand();
       expect(graphService.expandGraph).toHaveBeenCalled();
     });
-  })
+  });
 });

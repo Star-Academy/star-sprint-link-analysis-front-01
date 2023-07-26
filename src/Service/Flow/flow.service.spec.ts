@@ -13,7 +13,5 @@ describe('FlowService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
-  it('should run max flow in api and pop up maxflow dialog ', function () {
-
-  });
+  it('should run max flow in api and pop up maxflow dialog ', function () {});
 });

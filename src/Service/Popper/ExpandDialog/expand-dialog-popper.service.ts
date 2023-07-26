@@ -1,12 +1,13 @@
-import { Injectable } from "@angular/core";
-import OverlayComponent from "../../../Model/OverlayComponent";
-import Context from "../../../Model/Context";
+import { Injectable } from '@angular/core';
+import OverlayComponent from '../../../Model/OverlayComponent';
+import Context from '../../../Model/Context';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class ExpandDialogPopperService {
   private _component!: OverlayComponent;
+
   get component(): OverlayComponent {
     return this._component;
   }
@@ -23,5 +24,4 @@ export class ExpandDialogPopperService {
   public hide(): void {
     this._component.hide();
   }
-  constructor() {}
 }

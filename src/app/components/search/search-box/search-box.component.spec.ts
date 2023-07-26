@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SearchBoxComponent } from './search-box.component';
-import {SearchModule} from "../search.module";
+import { SearchModule } from '../search.module';
 
 describe('SearchBoxComponent', () => {
   let component: SearchBoxComponent;
@@ -10,7 +10,7 @@ describe('SearchBoxComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [SearchBoxComponent],
-      imports : [SearchModule]
+      imports: [SearchModule],
     });
     fixture = TestBed.createComponent(SearchBoxComponent);
     component = fixture.componentInstance;

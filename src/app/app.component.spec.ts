@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import {ExpandOverlayComponent} from "./components/expand-overlay/expand-overlay.component";
+import { ExpandOverlayComponent } from './components/expand-overlay/expand-overlay.component';
 
 describe('AppComponent', () => {
   beforeEach(() =>
     TestBed.configureTestingModule({
       imports: [RouterTestingModule],
-      declarations: [AppComponent,ExpandOverlayComponent],
+      declarations: [AppComponent, ExpandOverlayComponent],
     }),
   );
 
@@ -16,7 +16,6 @@ describe('AppComponent', () => {
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
-
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
