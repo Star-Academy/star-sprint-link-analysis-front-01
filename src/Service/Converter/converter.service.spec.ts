@@ -1,21 +1,22 @@
 import { TestBed } from '@angular/core/testing';
-
 import { ConverterService } from './converter.service';
 import { GraphResponseModel } from '../../Model/GraphResponseModel';
 
-describe('ConverterService', () => {
+describe('ConverterService', ():void => {
   let service: ConverterService;
 
-  beforeEach(() => {
+  beforeEach(():void => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(ConverterService);
   });
 
-  it('should be created', () => {
+  it('should be created', ():void => {
     expect(service).toBeTruthy();
   });
-  it('should convert node server responses to graph node', () => {
+  it('should convert node server responses to graph node', () :void=> {
+
     const testGraphResponse: GraphResponseModel = {
+
       vertices: [
         {
           id: 1,
@@ -101,10 +102,12 @@ describe('ConverterService', () => {
         },
       ],
     };
+
     const testNode =
       service.convertNodeServerResponsesToGraphNode(testGraphResponse);
     const testEdges =
       service.convertEdgeServerResponsesToGraphEdge(testGraphResponse);
+
     expect(testNode).toEqual([
       { id: '1', label: 'ناصر' },
       { id: '2', label: 'ناصر' },

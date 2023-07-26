@@ -6,10 +6,9 @@ import { UserService } from '../User/user.service';
 import { EventService } from '../Event/event.service';
 import { GraphBuilderService } from './Builder/graph-builder.service';
 import { testGraphResponse } from '../../constants';
-import { Observable, of } from 'rxjs';
-import { GraphResponseModel } from '../../Model/GraphResponseModel';
+import {  of } from 'rxjs';
 
-describe('GraphService', () => {
+describe('GraphService', ():void => {
   let service: GraphService;
 
   let api: ApiService;
@@ -26,7 +25,8 @@ describe('GraphService', () => {
 
   let graphBuilder: GraphBuilderService;
 
-  beforeEach(() => {
+  beforeEach(() :void=> {
+
     apiSpy = jasmine.createSpyObj(ApiService, ['expandGraph']);
     converterSpy = jasmine.createSpyObj(ConverterService, [
       'convertNodeServerResponsesToGraphNode',
@@ -38,6 +38,7 @@ describe('GraphService', () => {
     ]);
 
     TestBed.configureTestingModule({
+
       providers: [
         GraphService,
         { provide: ApiService, useValue: apiSpy },
@@ -46,6 +47,7 @@ describe('GraphService', () => {
         { provide: EventService, useValue: eventServiceSpy },
       ],
     });
+
     service = TestBed.inject(GraphService);
     graphBuilder = TestBed.inject(GraphBuilderService);
     api = TestBed.inject(ApiService);
@@ -54,11 +56,11 @@ describe('GraphService', () => {
     eventService = TestBed.inject(EventService);
   });
 
-  it('should be created', () => {
+  it('should be created', ():void => {
     expect(service).toBeTruthy();
   });
 
-  it('should call builder on graphInit', function () {
+  it('should call builder on graphInit', function ():void {
     spyOn(graphBuilder, 'buildGraph');
     service.initGraph(null);
 
@@ -66,12 +68,12 @@ describe('GraphService', () => {
     expect(graphBuilder.buildGraph).toHaveBeenCalled();
   });
 
-  it('should call eventService on graphEvents', function () {
+  it('should call eventService on graphEvents', function ():void {
     eventServiceSpy.initialGraphEvents.and.callThrough();
     service.graphEvents();
     expect(eventServiceSpy.initialGraphEvents).toHaveBeenCalled();
   });
-  it('should call api on renderGraph', function () {
+  it('should call api on renderGraph', function ():void {
     apiSpy.expandGraph.and.returnValue(of(testGraphResponse));
     spyOn(service, 'renderGraph').and.returnValue();
 

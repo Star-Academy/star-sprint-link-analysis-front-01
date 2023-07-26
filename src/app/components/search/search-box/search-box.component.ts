@@ -17,11 +17,11 @@ export class SearchBoxComponent {
   @Input() iconSrc!: string;
   @Input() iconAlt!: string;
 
-  @Output() txtChange = new EventEmitter<string>();
+  @Output() txtChange:EventEmitter<string> = new EventEmitter<string>();
 
   private _searchPhrase: string = '';
 
-  constructor(private searchService: SearchService) {}
+  constructor() {}
 
   public onChange(): void {
     this.txtChange.emit(this._searchPhrase);

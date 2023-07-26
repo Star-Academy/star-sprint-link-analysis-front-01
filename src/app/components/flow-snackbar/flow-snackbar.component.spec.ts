@@ -15,7 +15,20 @@ describe('FlowSnackbarComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create', ():void => {
     expect(component).toBeTruthy();
   });
+  describe("show()" ,():void=>{
+
+    it('should change isShow to true', function ():void {
+      component.show();
+      expect(component.isShow).toEqual(true)
+    });
+  })
+  describe("hide()" ,():void=>{
+    it('should change isShow to false', function ():void {
+      component.hide();
+      expect(component.isShow).toEqual(false)
+    });
+  })
 });

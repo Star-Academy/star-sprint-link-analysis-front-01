@@ -2,11 +2,13 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CircleAvatarComponent } from './circle-avatar.component';
 
-describe('CircleAvatarComponent', () => {
+describe('CircleAvatarComponent', ():void => {
+
   let component: CircleAvatarComponent;
   let fixture: ComponentFixture<CircleAvatarComponent>;
 
-  beforeEach(() => {
+  beforeEach(():void => {
+
     TestBed.configureTestingModule({
       declarations: [CircleAvatarComponent],
     });
@@ -15,7 +17,7 @@ describe('CircleAvatarComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create', ():void => {
     expect(component).toBeTruthy();
   });
 });

@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { ApiService } from './api.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { testGraphResponse, testMaxFlowResponseModel } from '../../constants';
@@ -7,7 +6,7 @@ import { LoadingService } from '../Loading/loading.service';
 import { HttpClient } from '@angular/common/http';
 import { of } from 'rxjs';
 
-describe('ApiService', () => {
+describe('ApiService', ():void => {
   let service: ApiService;
   let httpClient: HttpClient;
   let httpClientSpy: jasmine.SpyObj<HttpClient>;
@@ -15,7 +14,7 @@ describe('ApiService', () => {
   let loadingService: LoadingService;
   let loadingServiceSpy: jasmine.SpyObj<LoadingService>;
 
-  beforeEach(() => {
+  beforeEach(() :void=> {
     loadingServiceSpy = jasmine.createSpyObj(LoadingService, [
       'showLoading',
       'hideLoading',
@@ -29,7 +28,6 @@ describe('ApiService', () => {
         // Use the spy as a provider
         { provide: LoadingService, useValue: loadingServiceSpy },
         { provide: HttpClient, useValue: httpClientSpy },
-        // {provide: HttpClient, useValue: httpClient}
       ],
     });
 
@@ -38,14 +36,13 @@ describe('ApiService', () => {
     loadingService = TestBed.inject(LoadingService);
   });
 
-  it('should init graph', () => {
-    // expect(service).toBeTruthy();
+  it('should init graph', ():void => {
     loadingServiceSpy.showLoading.and.callThrough();
     loadingServiceSpy.hideLoading.and.callThrough();
     httpClientSpy.post.and.returnValue(of(testGraphResponse));
-    const setStateSpy = spyOn(service, 'setState').and.callThrough();
+    const setStateSpy:jasmine.Spy<any> = spyOn(service, 'setState').and.callThrough();
 
-    service.initGraph(1000000426).subscribe((data) => {
+    service.initGraph(1000000426).subscribe((data):void => {
       expect(data).toEqual(testGraphResponse);
     });
 
@@ -54,36 +51,36 @@ describe('ApiService', () => {
     expect(httpClientSpy.post).toHaveBeenCalled();
   });
 
-  it('should expand graph', () => {
-    // expect(service).toBeTruthy();
+  it('should expand graph', ():void => {
     loadingServiceSpy.showLoading.and.callThrough();
     loadingServiceSpy.hideLoading.and.callThrough();
 
     httpClientSpy.post.and.returnValue(of(testGraphResponse));
-    const setStateSpy = spyOn(service, 'setState').and.callThrough();
 
-    service.expandGraph(testGraphResponse.vertices[0], 2).subscribe((data) => {
+    service.expandGraph(testGraphResponse.vertices[0], 2).subscribe((data):void => {
       expect(data).toEqual(testGraphResponse);
     });
   });
 
-  it('should throw error', () => {
-    expect(() => {
+  it('should throw error', ():void => {
+    expect(() :void=> {
       service.expandGraph(undefined, 2);
     }).toThrowError('User Not Found');
   });
 
-  it('should setState', function () {
+  it('should setState', function ():void {
+
     let response = of(testGraphResponse);
     service.setState(response);
     expect(service['_currentState']).toEqual(testGraphResponse);
   });
 
-  it('should maxFlow', function () {
+  it('should maxFlow', function ():void {
+
     httpClientSpy.post.and.returnValue(of(testMaxFlowResponseModel));
     service
       .maxFlow(testGraphResponse.vertices[0], testGraphResponse.vertices[1])
-      .subscribe((data) => {
+      .subscribe((data):void => {
         expect(data).toEqual(testMaxFlowResponseModel);
       });
   });

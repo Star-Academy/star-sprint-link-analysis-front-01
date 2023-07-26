@@ -12,35 +12,34 @@ export class ExpandOverlayComponent implements OverlayComponent, OnInit {
   public isShow: boolean = false;
   public top: string = '0';
   public left: string = '0';
-
   private _maxLength: number = 0;
-  private id!: number;
-  private isShiftDown: boolean = false;
 
+  private _id!: number;
+  private _isShiftDown: boolean = false;
   constructor(
     private expandPopper: ExpandDialogPopperService,
     private graphService: GraphService,
   ) {}
+
   ngOnInit(): void {
     this.expandPopper.component = this;
   }
-
   @HostListener('document:keydown.shift', ['$event'])
   public shiftDown(e: KeyboardEvent): void {
     if (e.shiftKey) {
-      this.isShiftDown = true;
+      this._isShiftDown = true;
     }
   }
 
   @HostListener('document:keyup.shift', ['$event'])
   public shiftUp(e: KeyboardEvent): void {
     if (!e.shiftKey) {
-      this.isShiftDown = false;
+      this._isShiftDown = false;
     }
   }
 
-  show(): void {
-    if (!this.isShiftDown) {
+  public show(): void {
+    if (!this._isShiftDown) {
       this.isShow = true;
     }
   }
@@ -50,7 +49,7 @@ export class ExpandOverlayComponent implements OverlayComponent, OnInit {
   }
 
   public setAttribute(context: any): void {
-    this.id = parseInt(context.id);
+    this._id = parseInt(context.id);
   }
 
   public setPosition(tp: number, lft: number): void {
@@ -59,20 +58,23 @@ export class ExpandOverlayComponent implements OverlayComponent, OnInit {
   }
 
   public onExpand(): void {
-    this.graphService.expandGraph(this.id, this._maxLength);
+    this.graphService.expandGraph(this._id, this._maxLength);
     this.isShow = false;
   }
 
   public onClose(): void {
     this.isShow = false;
   }
-
   get maxLength(): number {
     return this._maxLength;
   }
 
   set maxLength(value: number) {
     this._maxLength = value;
+  }
+
+  get id(): number {
+    return this._id;
   }
 
   protected readonly parseInt = parseInt;
