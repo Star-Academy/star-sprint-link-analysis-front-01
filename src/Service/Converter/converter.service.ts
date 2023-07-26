@@ -14,7 +14,7 @@ export class ConverterService {
     for (let vertex of data.vertices) {
       nodes.push({
         id: vertex.id.toString(),
-        label: vertex.owner.name,
+        label: vertex.owner.name.trim(),
       });
     }
 

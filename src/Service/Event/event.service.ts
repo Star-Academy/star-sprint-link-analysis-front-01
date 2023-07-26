@@ -26,8 +26,8 @@ export class EventService {
 
     private graphSelectClick(graph: Graph) {
         graph.on("node:click", (e) => {
-            let nodes = graph.getNodes();
-            let selectedNodes = nodes.filter(node => node.getStates().includes("selected"));
+            const selectedNodes = this.getSelectedNodes(graph);
+
             if (selectedNodes.length > 2) {
                 graph.setItemState(e.item || "", "selected", false);
             }
@@ -46,6 +46,14 @@ export class EventService {
             }
         });
 
+    }
+
+    private getSelectedNodes(graph: Graph) {
+        graph.getContainer().onmousedown = () => {
+            this.expandDialogPopperService.hide();
+            this.popper.hide();
+        }
+        return graph.getNodes().filter(node => node.getStates().includes("selected"));
     }
 
     private graphMouseEnterEvent(graph: Graph) {
@@ -74,14 +82,20 @@ export class EventService {
 
     private graphMouseClickEvent(graph: Graph) {
         graph.on("node:click", (e) => {
-            let user = this.userService.findById(parseInt(e.item?._cfg?.id || ""));
-            this.expandDialogPopperService.show({
-                top: e.clientY,
-                left: e.clientX - 250,
-                name: user!.owner.name,
-                cardId: user!.cardId,
-                id: user!.id.toString(),
-            });
+            if (this.getSelectedNodes(graph).length == 1) {
+
+                let user = this.userService.findById(parseInt(e.item?._cfg?.id || ""));
+                this.expandDialogPopperService.show({
+                    top: e.clientY,
+                    left: e.clientX - 250,
+                    name: user!.owner.name,
+                    cardId: user!.cardId,
+                    id: user!.id.toString(),
+                });
+
+            } else {
+                this.expandDialogPopperService.hide();
+            }
         });
     }
 }
