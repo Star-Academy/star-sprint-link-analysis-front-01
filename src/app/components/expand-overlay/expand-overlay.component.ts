@@ -74,4 +74,6 @@ export class ExpandOverlayComponent implements OverlayComponent, OnInit {
   set maxLength(value: number) {
     this._maxLength = value;
   }
+
+  protected readonly parseInt = parseInt;
 }
