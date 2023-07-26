@@ -22,6 +22,8 @@ export class EventService {
         this.graphMouseLeaveEvent(graph);
         this.graphMouseClickEvent(graph);
         this.graphSelectClick(graph);
+        this.hideOnContainerClick(graph);
+
     }
 
     private graphSelectClick(graph: Graph) {
@@ -48,11 +50,14 @@ export class EventService {
 
     }
 
-    private getSelectedNodes(graph: Graph) {
+    private hideOnContainerClick(graph: Graph) {
         graph.getContainer().onmousedown = () => {
             this.expandDialogPopperService.hide();
             this.popper.hide();
         }
+    }
+
+    private getSelectedNodes(graph: Graph) {
         return graph.getNodes().filter(node => node.getStates().includes("selected"));
     }
 
