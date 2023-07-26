@@ -1,11 +1,12 @@
-<div class="container glass">
-  <app-circle-avatar
-    iconSrc="assets/icons/account.svg"
-    iconAlt="account icon"
-    [size]="5"
-  ></app-circle-avatar>
-  <div class="column">
-    <p><b>id:</b> {{ id }}</p>
-    <p><b>card id:</b> {{ cardId }}</p>
-  </div>
+<!--<div class="container glass" (click)="onItemSelected(user)">-->
+<div class="container glass" >
+    <app-circle-avatar
+            iconSrc="assets/icons/account.svg"
+            iconAlt="account icon"
+            [size]="5"
+    ></app-circle-avatar>
+    <div class="column">
+        <p><b>Name : </b> {{ user.owner.name }}</p>
+        <p><b>Id : </b> {{ user.id }}</p>
+    </div>
 </div>

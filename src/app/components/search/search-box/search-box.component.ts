@@ -1,36 +1,26 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  Output,
-  SimpleChanges,
-} from '@angular/core';
-import { SearchService } from '../../../../Service/Search/search.service';
+import {Component, EventEmitter, Input, Output,} from '@angular/core';
+import {SearchService} from '../../../../Service/Search/search.service';
 
 @Component({
-  selector: 'app-search-box',
-  templateUrl: './search-box.component.html',
-  styleUrls: ['./search-box.component.scss'],
+    selector: 'app-search-box',
+    templateUrl: './search-box.component.html',
+    styleUrls: ['./search-box.component.scss'],
 })
 export class SearchBoxComponent {
-  @Input() iconSrc!: string;
-  @Input() iconAlt!: string;
+    @Input() iconSrc!: string;
+    @Input() iconAlt!: string;
 
-  @Output() txtChange:EventEmitter<string> = new EventEmitter<string>();
+    @Output() txtChange = new EventEmitter<string>();
 
-  private _searchPhrase: string = '';
 
-  constructor() {}
+    @Input() searchPhrase: string = '';
 
-  public onChange(): void {
-    this.txtChange.emit(this._searchPhrase);
-  }
-  get searchPhrase(): string {
-    return this._searchPhrase;
-  }
+    constructor(private searchService: SearchService) {
+    }
 
-  set searchPhrase(value: string) {
-    this._searchPhrase = value;
-  }
+    public onChange(): void {
+        this.txtChange.emit(this.searchPhrase);
+    }
+
+
 }

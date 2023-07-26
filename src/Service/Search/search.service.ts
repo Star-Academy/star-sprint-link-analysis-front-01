@@ -1,15 +1,35 @@
-import { Injectable } from '@angular/core';
-import { ApiService } from '../Api/api.service';
-import { GraphResponseModel } from '../../Model/GraphResponseModel';
-import { GraphService } from '../Graph/graph.service';
+import {Injectable} from '@angular/core';
+import {ApiService} from '../Api/api.service';
+import {GraphService} from '../Graph/graph.service';
+import {UserSearchListComponent} from "../../app/components/search/user-search-list/user-search-list.component";
 
 @Injectable({
-  providedIn: 'root',
+    providedIn: 'root',
 })
 export class SearchService {
-  constructor(private graphService: GraphService) {}
+    private _searchResultComponent!: UserSearchListComponent;
 
-  public getById(id: number):void {
-    this.graphService.getInitGraph(id);
-  }
+
+    constructor(private graphService: GraphService, private api: ApiService) {
+    }
+
+    public getById(id: number): void {
+        this.graphService.getInitGraph(id);
+    }
+
+    public searchByName(name: string) {
+        this.api.searchByName(name).subscribe((data) => {
+            this._searchResultComponent.show();
+            this._searchResultComponent.userList = data;
+        });
+    }
+
+    public hideSearchResult() {
+        this._searchResultComponent.hide();
+    }
+
+
+    set searchResultComponent(value: UserSearchListComponent) {
+        this._searchResultComponent = value;
+    }
 }
