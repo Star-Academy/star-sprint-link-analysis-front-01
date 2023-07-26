@@ -77,8 +77,8 @@ export class EventService {
         cardId: user!.cardId,
         name: user!.owner.name,
 
-        top: e.clientY,
-        left: e.clientX + 100,
+        top: e.clientY - 50,
+        left: e.clientX + 150,
       });
 
     });
