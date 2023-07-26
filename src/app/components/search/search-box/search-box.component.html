@@ -1,4 +1,10 @@
 <div class="container glass">
   <img [alt]="iconAlt" class="searchIcon" [src]="iconSrc" />
-  <input class="search-input open" placeholder="Search...." type="text" />
+  <input
+    class="search-input"
+    [(ngModel)]="searchPhrase"
+    (input)="onChange()"
+    placeholder="Search...."
+    type="text"
+  />
 </div>

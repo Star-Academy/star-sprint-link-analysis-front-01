@@ -1,33 +1,27 @@
-import { TestBed } from "@angular/core/testing";
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { RouterTestingModule } from "@angular/router/testing";
 import { AppComponent } from "./app.component";
+import { ExpandOverlayComponent } from "./components/expand-overlay/expand-overlay.component";
+import { LoadingModule } from "./components/loading/loading.module";
+import { ErrorOverlayComponent } from "./components/error-overlay/error-overlay.component";
 
-describe("AppComponent", () => {
-  beforeEach(() =>
-    TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
-      declarations: [AppComponent],
-    }),
+describe("AppComponent", (): void => {
+  beforeEach(
+    (): TestBed =>
+      TestBed.configureTestingModule({
+        imports: [RouterTestingModule, LoadingModule],
+        declarations: [
+          AppComponent,
+          ExpandOverlayComponent,
+          ErrorOverlayComponent,
+        ],
+      }),
   );
 
-  it("should create the app", () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
+  it("should create the app", (): void => {
+    const fixture: ComponentFixture<AppComponent> =
+      TestBed.createComponent(AppComponent);
+    const app: AppComponent = fixture.componentInstance;
     expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'linkAnalysis'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual("linkAnalysis");
-  });
-
-  it("should render title", () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector(".content span")?.textContent).toContain(
-      "linkAnalysis app is running!",
-    );
   });
 });

@@ -1,4 +1,5 @@
-import {Component, Input} from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { SearchService } from "../../../../Service/Search/search.service";
 
 @Component({
   selector: "app-search-box",
@@ -8,4 +9,13 @@ import {Component, Input} from "@angular/core";
 export class SearchBoxComponent {
   @Input() iconSrc!: string;
   @Input() iconAlt!: string;
+  @Input() searchPhrase: string = "";
+
+  @Output() txtChange = new EventEmitter<string>();
+
+  constructor(private searchService: SearchService) {}
+
+  public onChange(): void {
+    this.txtChange.emit(this.searchPhrase);
+  }
 }

@@ -1,8 +1,17 @@
-<div class="glass container">
+<div
+  class="glass container"
+  [style.--top]="top"
+  [style.--left]="left"
+  *ngIf="isShow"
+>
   <input
     class="length-input glass-brighter"
     placeholder="Length..."
     type="text"
+    #inputRef
+    [value]="maxLength"
+    (input)="maxLength = parseInt(inputRef.value)"
   />
-  <button>Continue</button>
+  <button (click)="onExpand()">Continue</button>
+  <button class="cancel" (click)="onClose()">Cancel</button>
 </div>

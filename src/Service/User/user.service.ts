@@ -1,0 +1,24 @@
+import { Injectable } from "@angular/core";
+import { Vertex } from "../../Model/GraphResponseModel";
+
+@Injectable({
+  providedIn: "root",
+})
+export class UserService {
+  private _users!: Vertex[];
+
+  constructor() {}
+
+  public findById(id: number): Vertex | undefined {
+    return this.users.find((item: Vertex): boolean => {
+      return item.id === id;
+    });
+  }
+  get users(): Vertex[] {
+    return this._users;
+  }
+
+  set users(value: Vertex[]) {
+    this._users = value;
+  }
+}

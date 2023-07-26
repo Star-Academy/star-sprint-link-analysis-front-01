@@ -1,5 +1,14 @@
-<div class="glass container">
-  <app-circle-avatar iconSrc="assets/icons/account.svg" iconAlt="account icon" [size]=5></app-circle-avatar>
+<div
+  class="glass container"
+  *ngIf="isShow"
+  [style.--top]="top"
+  [style.--left]="left"
+>
+  <app-circle-avatar
+    [size]="5"
+    iconAlt="account icon"
+    iconSrc="assets/icons/account.svg"
+  ></app-circle-avatar>
   <h3>{{ name }}</h3>
   <p><b>id: </b>{{ id }}</p>
   <p><b>card id: </b>{{ cardId }}</p>

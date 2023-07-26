@@ -1,9 +1,14 @@
-<div class="container glass">
+<div class="container glass" *ngIf="isShow">
   <img [alt]="iconAlt" [src]="iconSrc" />
   <p>Max Flow from {{ source }} to {{ target }} is:</p>
   <div class="maxflow">
     <p>{{ amount }}</p>
-    <img alt="copy icon" src="assets/icons/copy.svg" />
+    <img
+      alt="copy icon"
+      src="assets/icons/copy.svg"
+      ngxClipboard
+      [cbContent]="amount"
+    />
   </div>
-  <button>Continue</button>
+  <button (click)="onClose()">Continue</button>
 </div>

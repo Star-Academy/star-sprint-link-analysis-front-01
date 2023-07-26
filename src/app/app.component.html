@@ -1,22 +1,19 @@
 <div class="wrapper">
   <div class="container">
-    <app-flow-snackbar
-      alt="flow icon"
-      iconSrc="assets/icons/flow.svg"
-      message="You are calculating max flow......"
-    ></app-flow-snackbar>
-    <app-userinfo-dialog
-      cardId="12345678"
-      id="12345678"
-      name="ArTaZ"
-    ></app-userinfo-dialog>
+    <app-loading></app-loading>
+    <app-error-overlay></app-error-overlay>
+    <app-expand-overlay></app-expand-overlay>
+    <app-userinfo-dialog></app-userinfo-dialog>
+    <app-search></app-search>
     <app-flow-dialog
-      amount="10000"
-      source="12345678"
-      target="12345678"
       iconSrc="assets/icons/flow.svg"
       iconAlt="flow icon"
     ></app-flow-dialog>
-    <app-search></app-search>
+    <app-flow-snackbar
+      iconSrc="assets/icons/flow.svg"
+      alt="flow svg"
+      message="You Are Calculating Max Flow..."
+    ></app-flow-snackbar>
+    <app-graph></app-graph>
   </div>
 </div>

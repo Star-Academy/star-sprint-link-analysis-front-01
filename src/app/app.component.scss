@@ -1,5 +1,5 @@
 .wrapper {
-  background-color: var(--main-body-bg);
+  background-image: var(--primary-gradiant);
 
   display: flex;
   flex-direction: column;
@@ -12,10 +12,9 @@
     background-image: var(--primary-gradiant);
 
     position: relative;
+    overflow: hidden;
 
-    width: 90%;
-    height: 90%;
-
-    border-radius: 2.5rem;
+    width: 99%;
+    height: 99%;
   }
 }
